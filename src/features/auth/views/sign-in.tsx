@@ -9,7 +9,6 @@ import ViewOffIcon from '@/components/icons/view-off'
 import CustomerSupportIcon from '@/components/icons/customer-support'
 
 import videoBanner from '@/assets/intro.mp4'
-import uzinfocomLogo from '@/assets/uzinfocom-logo.png'
 import logo_white from '@/assets/uzlogo_white.png'
 import { useTranslation } from 'react-i18next'
 
@@ -181,7 +180,7 @@ export default function SignIn(): React.ReactElement {
           </Typography.Text>
           <a href="/">
             <img
-              src={uzinfocomLogo}
+              src=""
               alt="uzinfocom logo"
               className="w-[120px]"
             />
