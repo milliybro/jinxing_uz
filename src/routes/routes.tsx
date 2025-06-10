@@ -8,7 +8,6 @@ import tableRoutes from '@/features/table/routes'
 import guestsRoutes from '@/features/guests/routes'
 import bookingRoutes from '@/features/booking/routes'
 import welcomeRoutes from '@/features/welcome/routes'
-import calendarRoutes from '@/features/calendar/routes'
 import analyticsRoutes from '@/features/analytics/routes'
 import newBookingRoutes from '@/features/new-booking/routes'
 import tariffPlansRoutes from '@/features/tariff-plans/routes'
@@ -58,7 +57,6 @@ const routes: CustomRoute[] = [
       contrAgentsRoutes,
       tariffsAndNumbersRoutes,
       newBookingRoutes,
-      calendarRoutes,
       guestsRoutes,
       goodsAndServicesRoots,
       analyticsRoutes,
