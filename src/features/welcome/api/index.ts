@@ -2,7 +2,6 @@ import request from '@/utils/axios'
 import type { AxiosResponse } from 'axios'
 import type { AuthResponse } from '../types'
 import { ListResponse } from '@/types'
-import { ICleaner } from '@/features/room-cleaning/types'
 
 export async function login(data: {
   username: string
@@ -31,8 +30,8 @@ export async function refreshToken(data: {
 
 export async function getCategories(
   params?: any,
-): Promise<ListResponse<ICleaner[]>> {
-  const res: ListResponse<ICleaner[]> = await request({
+): Promise<ListResponse<any[]>> {
+  const res: ListResponse<any[]> = await request({
     url: '/categories/',
     method: 'get',
     params,
