@@ -1,0 +1,1241 @@
+{
+  "home-page": {
+    "welcome": "Xush kelibsiz, {{name}}",
+    "welcome-description": "Bu yerda siz mehmonxonangizning umumiy statistikasini ko‘rishingiz mumkin",
+    "were-check-ins": "Kirganlar",
+    "were-check-outs": "Ketganlar",
+    "currently-staying-guests": "Xonada yashovchilar",
+    "daily-hotel-occupancy": "Mehmonxonaning kunlik bandligi",
+    "bookings-review": "Bandlovlar sharhi",
+    "view-all-bookings": "Barcha bandlovlarni ko‘rish"
+  },
+  "calendar-page": {
+    "view-bookings": "Bandlovlarni ko‘rish",
+    "relocate-guest-modal-title": "Mehmonni boshqa xonaga ko‘chirmoqchimisiz?",
+    "relocate-guest-modal-description": "Mehmonni ko‘chirmoqchi bo‘lgan xonangizni tanlang",
+    "relocate-guest-modal-notice": "Siz xonaning boshqa turiga o‘tyapsiz. Yashash narxi o‘zgarishi mumkin.",
+    "block-dates-modal-title": "Bu sanalarni bloklashni istaysizmi?",
+    "block-dates-modal-description": "Quyidagi variantlardan xona bloklash sababini tanlang."
+  },
+  "tariff-plans-page": {
+    "name": {
+      "label": "Tarifni qanday nomlashni xohlaysiz?",
+      "rule": "Iltimos, kiriting!",
+      "placeholder": "Nomini kiriting"
+    },
+    "price": {
+      "label": "Tarif narxini kiriting",
+      "rule": "Iltimos, narxni kiriting!",
+      "placeholder": "Narxni kiriting"
+    },
+    "end_date": {
+      "label": "Tarifning amal qilish muddatini tanlang",
+      "rule": "Iltimos, kiriting!",
+      "placeholder": "Sanani belgilang"
+    },
+    "meals_included": {
+      "label": "Bu tarif rejasiga ovqatlanishni qo‘shishni xohlaysizmi?",
+      "rule": "Iltimos, kiriting!"
+    },
+    "meals": {
+      "label": "Tarifga kiritilgan ovqatlanishni tanlang",
+      "rule": "Iltimos, kiriting!",
+      "placeholder": "Nomini kiriting"
+    },
+    "services": {
+      "label": "Ushbu tarifga kiritilgan xizmatlarni tanlang",
+      "rule": "Iltimos, kiriting!",
+      "placeholder": "Nomini kiriting"
+    },
+    "rooms": {
+      "label": "Qanday turdagi xonalarni band qilish mumkin?",
+      "rule": "Iltimos, kiriting!",
+      "placeholder": "Nomini kiriting"
+    },
+    "has_min_stay_nights": {
+      "label": "Minimal yashash muddatini belgilashni istaysizmi?",
+      "label-info": "Odatiy 1 kecha, kamida 1 kecha, maksimal 31 kecha",
+      "rule": "Iltimos, kiriting!",
+      "placeholder": "Nomini kiriting"
+    },
+    "min_stay_nights": {
+      "rule": "Iltimos, kiriting!",
+      "suffix": "Kecha"
+    },
+    "has_order_advance_days": {
+      "label": "Mehmonlar kelishidan necha kun oldin band qilishlari mumkin?",
+      "label-info": "Odatiy ravishda istalgan vaqtda, kamida 1 kun, maksimal 31 kun",
+      "rule": "Iltimos, kiriting!",
+      "true": "Kirishgacha bo‘lgan kunlarni ko‘rsatish",
+      "false": "Ahamiyati yo‘q (istalgan vaqtda mavjud bo‘ladi)"
+    },
+    "contr-agents-apply": {
+      "label": "Barcha kontragentlarga qo‘llansinmi?",
+      "label-info": "Siz ushbu tarif uchun barcha yoki bir nechta kontragentlarni tanlashingiz mumkin",
+      "rule": "Iltimos, kiriting!"
+    },
+    "contr-agents-select": {
+      "placeholder": "Kontragentlarni tanlang"
+    },
+    "delete-modal": {
+      "title": "Arxivmi?",
+      "description": "Bu tarifni arxivlashni xohlaysizmi?"
+    },
+    "national-turism": {
+      "title": "Ushbu tarif ‘Milliy turizm‘ platformasi uchun amal qiladimi?",
+      "description": "Bu tarif “Milliy turizm” platformasiga tegishli yoki yoʻqligini tanlang"
+    },
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "description": "Tarif rejalari topilmadi. Mehmonxonangizga tarif rejalarini qo‘shing"
+    }
+  },
+  "channel-revenue-page": {
+    "title": "Kanallar aylanishi"
+  },
+  "payment-types": {
+    "type": "To‘lov turi",
+    "delete-payment-type-title": "To‘lov turi o‘chirilsinmi?",
+    "delete-payment-type-subtitle": "Ushbu to‘lov turini o‘chirishni haqiqatdan tasdiqlaysizmi?",
+    "new-payment-type": "Yangi to‘lov turi",
+    "enter-name-number": "Ism yoki raqamni kiriting",
+    "payment-type": {
+      "label": "Yangi to‘lov turi",
+      "label-info": "Siz ushbu tarif uchun barchani yoki bir nechta kontragentlarni tanlashingiz mumkin",
+      "rule": "Iltimos, to‘lov turini tanlang!"
+    },
+    "not-found": {
+      "title": "Ничего не найдено",
+      "description": "На данный момент отсутствуют типы оплат . Добавьте новые типы оплат прямо сейчас"
+    }
+  },
+  "room-types": {
+    "add-room-type": "Xona turini qo‘shish",
+    "max-adults": "Maksimal kattalar",
+    "max-child": "Maksimal bolalar",
+    "form": {
+      "title": "Yangi xona turi",
+      "editing-title": "Xona turini tahrirlash",
+      "number-room": {
+        "label": "Xona turining nomi",
+        "rule": "Iltimos, kiriting!"
+      },
+      "room-type": {
+        "label": "Xona turi",
+        "rule": "Iltimos, xona turini tanlang!",
+        "placeholder": "Xona turini tanlang"
+      },
+      "description": {
+        "label": "Tavsif",
+        "rule": "Iltimos, kiriting!"
+      },
+      "status": {
+        "label": "Xonaning mavjudligi"
+      }
+    }
+  },
+  "all-rooms": {
+    "title": "Barcha xonalar",
+    "add-room": "Xona qo‘shish",
+    "new-room": "Yangi xona",
+    "number-code": "Xona kodi",
+    "number-type": "Xona turi",
+    "delete-btn": {
+      "title": "Ushbu xonani o‘chirishmi?",
+      "desc": "Ushbu xonani o‘chirishni tasdiqlaysizmi?"
+    },
+    "form": {
+      "number-room": {
+        "label": "Xona raqami",
+        "rule": "Iltimos, kiriting!"
+      },
+      "room-type": {
+        "label": "Xona turi",
+        "rule": "Iltimos, xona turini tanlang!",
+        "placeholder": "Xona turini tanlang"
+      },
+      "description": {
+        "label": "Tavsif",
+        "rule": "Iltimos, kiriting!"
+      },
+      "status": {
+        "label": "Xonaning mavjudligi"
+      }
+    },
+    "filter": {
+      "room-type": {
+        "label": "Xona turi",
+        "placeholder": "Xona turini tanlang"
+      },
+      "status": {
+        "label": "Holati",
+        "placeholder": "Holatni tanlang"
+      },
+      "max-adults": {
+        "label": "Maksimal kattalar soni",
+        "placeholder": "Maksimal kattalar sonini kiriting"
+      }
+    },
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "desc": "Hozirda raqamlar yo‘q. Hozir yangi raqamlar qo‘shing"
+    }
+  },
+  "category-of-goods": {
+    "add-category": "Kategoriya qo‘shish",
+    "edit-category": "Kategoriyani tahrirlash",
+    "name-category": "Kategoriya nomi",
+    "code-category": "Kategoriya kodi",
+    "delete": "Kategoriyani o‘chirilsinmi?",
+    "delete-desc": "Siz ushbu xodimni o‘chirishni istayotganingizni tasdiqlang?",
+    "added-category": "Kategoriya qo‘shildi!",
+    "added-category-success": "Yangi kategoriya muvaffaqiyatli qo‘shildi",
+    "one-rule": "Iltimos, kiriting!",
+    "one-placeholder": "Nomini kiriting",
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "desc": "Hozirda mahsulot yoki xizmat toifalari mavjud emas. Hozir yangi toifalarni qo‘shing"
+    }
+  },
+  "features-page": {
+    "title": "Afzalliklari",
+    "add-features": "Afzallik qo‘shish",
+    "added-features": "Yangi afzallik qo‘shildi",
+    "edit": "Afzalliklarni tahrirlash",
+    "select-icon": "Ikonkani tanlash",
+    "search-features": "Ikonkalarni qidirish",
+    "delete-title": "Afzallikni o‘chirish?",
+    "delete-subtitle": "Siz ushbu afzallikni o‘chirishni istayotganingizni tasdiqlang?",
+    "select-icon-desc": "Afzallik uchun ikonka tanlash kerak",
+    "form": {
+      "name": {
+        "label": "Afzallik nomi",
+        "rule": "Iltimos, kiriting!",
+        "placeholder": "Nomini kiriting"
+      },
+      "icon": {
+        "label": "Ikonka",
+        "rule": "Iltimos, kiriting!",
+        "placeholder": "Ikonkani tanlang"
+      }
+    },
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "desc": "Hozirda hech qanday mahsulot yoki xizmatlar mavjud emas. Hozir yangi mahsulotlar qo‘shing"
+    }
+  },
+  "goods-and-services": {
+    "add-goods-service": "Mahsulot yoki xizmat qo‘shish",
+    "editted-goods-service": "Mahsulot/xizmat tahrirlandi!",
+    "added-goods-service": "Mahsulot/xizmat qo‘shildi!",
+    "editted-goods-service-success": "Mahsulot yoki xizmat muvaffaqiyatli tahrirlandi",
+    "added-goods-service-success": "Yangi mahsulot yoki xizmat muvaffaqiyatli qo‘shildi",
+    "edit-goods-service": "Mahsulot yoki xizmatni tahrirlash",
+    "form": {
+      "name-goods": {
+        "label": "Mahsulot yoki xizmat nomi",
+        "rule": "Mahsulot yoki xizmat nomini kiriting!",
+        "placeholder": "Nomini kiriting"
+      },
+      "category": {
+        "label": "Kategoriya",
+        "rule": "Iltimos, kategoriyani kiriting!",
+        "placeholder": "Kategoriyani tanlang"
+      },
+      "price": {
+        "label": "Mahsulot yoki xizmat narxi",
+        "rule": "Iltimos, narxni kiriting!",
+        "placeholder": "Narxni kiriting"
+      },
+      "adults": {
+        "label": "Kattalar uchun maksimal soni",
+        "rule": "Iltimos, kattalar uchun maksimal sonini kiriting!",
+        "placeholder": "Kattalar sonini kiriting"
+      }
+    },
+    "delete": "Mahsulot yoki xizmatni o‘chirish?",
+    "delete-desc": "Siz ushbu mahsulot yoki xizmatni o‘chirishni istayotganingizni tasdiqlang?",
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "desc": "Hozirda hech qanday mahsulot yoki xizmatlar mavjud emas. Hozir yangi mahsulotlar qo‘shing"
+    }
+  },
+
+  "booking-page": {
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "desc": "Afsuski, so‘rovingiz bo‘yicha hech narsa topilmadi, filtr sozlamalarini o‘zgartirib ko‘ring yoki foydalanuvchi qo‘llanmasiga qarang",
+      "reset": "Filtrni tiklash"
+    },
+    "category__key": {
+      "label": "Tur",
+      "placeholder": "Bandlov"
+    },
+    "room": {
+      "label": "Raqam",
+      "placeholder": "Bandlov"
+    },
+    "start_date": {
+      "label": "Boshlanish",
+      "placeholder": "Sanani belgilang"
+    },
+    "end_date": {
+      "label": "Tugash",
+      "rule": "Oxir boshlanishidan oldin bo‘lishi mumkin emas",
+      "placeholder": "Sanani belgilang"
+    },
+    "statuses": {
+      "label": "Holat",
+      "placeholder": "Sanani belgilang"
+    },
+    "sources": {
+      "label": "Manba",
+      "placeholder": "Manbani tanlang"
+    }
+  },
+
+  "guests-page": {
+    "statuses": {
+      "label": "Bandlov holati",
+      "placeholder": "Holatni tanlang"
+    },
+    "countries": {
+      "label": "Davlat",
+      "placeholder": "Davlatni tanlang"
+    },
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "desc": "Hozirda raqamlar yo‘q. Hozir yangi raqamlar qo‘shing"
+    }
+  },
+
+  "booking-stats-page": {
+    "title": "Bandlov statistikasi",
+    "chart": {
+      "title": "Sotilgan tunlar va daromad",
+      "avg-room": "O‘rtacha xona narxi"
+    }
+  },
+
+  "transactions-page": {
+    "title": "Tranzaksiyalar"
+  },
+
+  "status-stats-page": {
+    "title": "Holatlar statistikasi"
+  },
+
+  "booking-balances-page": {
+    "title": "Bandlov balanslari"
+  },
+
+  "role-management": {
+    "add-role": "Yangi rol qo‘shish",
+    "role-name": "Rol nomi",
+    "delete-role": "Rolni o‘chirish?",
+    "delete-role-desc": "Siz ushbu rolni o‘chirishni istayotganingizni tasdiqlang?",
+    "rule": "Rol nomini kiriting",
+    "placeholder": "Rol nomi"
+  },
+
+  "user-management": {
+    "add": "Yangi foydalanuvchi qo‘shish",
+    "add-user": "Foydalanuvchi qo‘shish",
+    "add-user-click": "Yangi foydalanuvchini bir marta bosish orqali qo‘shing.",
+    "edit-user": "Foydalanuvchini tahrirlash",
+    "edit-user-click": "Foydalanuvchini bir marta bosish orqali tahrirlang.",
+    "user-delete": "Foydalanuvchi o‘chirildi!",
+    "user-delete-success": "Foydalanuvchi muvaffaqiyatli o‘chirildi",
+    "user-edit": "Foydalanuvchi o‘zgartirildi!",
+    "user-edit-success": "Foydalanuvchi muvaffaqiyatli o‘zgartirildi",
+    "delete-title": "Foydalanuvchini o‘chirish?",
+    "delete-subtitle": "Siz ushbu foydalanuvchini o‘chirishni istayotganingizni tasdiqlang?",
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "subtitle": "Hozirda mahsulot va xizmatlar kategoriyalari mavjud emas. Yangi kategoriyalarni hoziroq qo‘shing",
+      "action-text": "Foydalanuvchini qo‘shish"
+    },
+    "modal-form": {
+      "first-name": {
+        "rule": "Iltimos, kiriting!",
+        "placeholder": "Ismni kiriting"
+      },
+      "last-name": {
+        "rule": "Iltimos, kiriting!",
+        "placeholder": "Familiyani kiriting"
+      },
+      "gender": {
+        "label": "Jinsni tanlang",
+        "rule": "Iltimos, kiriting!"
+      },
+      "birthday": {
+        "label": "Tug‘ilgan kunni tanlang",
+        "rule": "Iltimos, kiriting!"
+      },
+      "email": {
+        "label": "Login",
+        "rule1": "Iltimos, logingizni kiriting!",
+        "rule2": "Kiritilgan login yaroqsiz!",
+        "placeholder": "Loginni kiriting"
+      },
+      "phone": {
+        "label": "Telefon raqamini qo‘shing",
+        "rule": "Iltimos, telefon raqamini kiriting!"
+      },
+      "groups": {
+        "label": "Rolni tanlang",
+        "rule": "Iltimos, kiriting!"
+      },
+      "username": {
+        "label": "Login",
+        "placeholder": "Login yarating"
+      },
+      "password": {
+        "placeholder": "Parol yarating",
+        "repeat-pass": "Parolni qayta kiriting",
+        "repeat-rule": "Iltimos, parolingizni tasdiqlang!",
+        "rule1": "Iltimos, parolingizni kiriting!",
+        "rule2": "Parol 5 belgidan uzun bo‘lishi kerak!",
+        "error": "Parollar mos emas!"
+      }
+    }
+  },
+  "booking-detail": {
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "subtitle": "Joriy bandlov uchun pul tranzaksiyalari hali tugallanmagan. Filtr parametrlarini o‘zgartirib ko‘ring yoki yangi tranzaksiyani amalga oshiring. Masalan, mumkin",
+      "action-text": "To‘lov qo‘shish"
+    },
+    "not-found-service": {
+      "title": "Hech narsa topilmadi",
+      "subtitle": "Joriy band qilish xizmatlari hali tugallanmagan. Filtr parametrlarini o‘zgartirishga harakat qiling yoki yangi operatsiyani bajaring.",
+      "action-text": "Mahsulot/xizmat qo‘shing"
+    }
+  },
+  "welcome": {
+    "find-accommodation": "Joy topish",
+    "where-to-go": "Qayerga borish?",
+    "tours": "Turlar",
+    "transport": "Transport",
+    "login": "Kirish",
+    "start-free": "Bepul boshlash",
+    "intro": {
+      "title": "Mehmonxonangizni Milliy turizmda ro‘yxatdan o‘tkazing",
+      "text": "Dam olish joyingizni Milliy turizmda ro‘yxatdan o‘tkazing va dunyo bo‘ylab sayohatchilarni jalb qiling. Biz barcha hamkorlarimizni, asosiy faoliyat sifatida ishlayotganlarni ham, vaqtini maroqli o‘tkazib, mehmonlarni qabul qiluvchilarni ham mamnuniyat bilan qabul qilamiz."
+    },
+    "intro-card": {
+      "title": "Bandlovlarni doimiy ravishda qabul qiling va daromadingizni oshiring",
+      "field1": "Hamkorlarning 45% bir hafta ichida birinchi buyurtmasini qabul qiladi",
+      "field2": "2010 yildan buyon 1,1 milliondan ortiq mehmon biz orqali dam olish joylarini band qilgan",
+      "field3": "Siz o‘z joyingizni va moliyangizni to‘liq nazorat qila olasiz",
+      "field4": "Ro‘yxatdan o‘tish 15 daqiqa vaqt oladi va bepul amalga oshiriladi"
+    },
+    "request": {
+      "title": "Tizimga kirish uchun ariza",
+      "desc": "Milliy turizm bandlov tizimiga kirish uchun INN raqamingizni yuboring"
+    },
+    "search-island": {
+      "text1": "dam olish joylarini band qilgan mehmonlar yana bir marta biz orqali band qilishadi",
+      "text2": "2022 yilda Booking.com orqali band qilingan tunlarning katta qismi xorijiy sayohatlarga to‘g‘ri keladi",
+      "text3": "dam olish joylarini band qilgan mehmonlar band qilish uchun ko‘proq mablag‘ sarflashadi"
+    },
+    "steps": {
+      "title": "Daromadli buyurtmalarni tez jalb qilish imkoniyati",
+      "text": "Biz haqimizda bilishingiz uchun bir nechta muhim afzalliklar",
+      "items": {
+        "item1": "Sayohat veb-saytlarida olingan sharhlarni baholashni konvertatsiya qilamiz va birinchi sharhingizni olguningizcha sizning sahifangizda ko‘rsatamiz.",
+        "item2": "Booking.com saytida «Yangi» belgisi sizning joyingizni qidiruv natijalarida ko‘rinadigan qiladi.",
+        "item3": "Biz sahifangizni samaradorligini oshirishga yordam beradigan harakatlar ro‘yxatini tuzdik.",
+        "item4": "Bizning innovatsion sifat baholash tizimimiz sizni mehmonlar uchun tezroq topishga yordam beradi.",
+        "item5": "«Smart Flex» dasturi tunlarni sotishni 30% ga oshiradi: ba‘zi bekor qilish qoidalari moslashuvchanroq bo‘ladi va siz ko‘proq mehmonlarni jalb qilasiz. Agar bronlash bekor qilinsa, biz boshqa mehmonni topamiz."
+      }
+    },
+    "banner": {
+      "title": "Siz joyingizni to‘liq nazorat qila olasiz",
+      "text": "Agar mulkingizga 500 €/$/£ gacha zarar yetkazilsa, biz zararni qoplash uchun so‘rovingizni ko‘rib chiqamiz. Siz har bir bronlash bo‘yicha 1 000 000 €/£/$ gacha mehmonlar talablariga qarshi himoyani rasmiylashtira olasiz"
+    },
+    "management": {
+      "title": "Joyni boshqarish oson",
+      "text": "Biz haqimizda bilishingiz uchun bir nechta muhim afzalliklar",
+      "items": {
+        "item1-title": "Ma’lumotlarni oddiy import qilish",
+        "item1-desc": "Joyingizning ma’lumotlarini boshqa sayohat saytlardan tezda import qilishingiz mumkin.",
+        "item2-title": "O‘sish va ishonch",
+        "item2-desc": "Onlayn to‘lov tizimi to‘lovlarni qabul qilishni va firibgarlikdan himoyalanishni ta‘minlaydi.",
+        "item3-title": "Ishonchli yordam xizmati",
+        "item3-desc": "Bizning yordam xizmati 45 tilda ishlaydi.",
+        "item4-title": "Komissiya shartlari shaffof",
+        "item4-desc": "Kimga va qancha to‘lash kerakligini aniq bilib olasiz."
+      }
+    },
+    "faq": {
+      "title": "Ko‘p beriladigan savollar",
+      "text": "Hamkorlarimizning savollarini bilib oling",
+      "items": {
+        "item1-title": "Koronavirus: yordam sahifasi",
+        "item2-title": "Bekor qilishlar",
+        "item3-title": "Qanday to‘lov usullari qabul qilinadi?",
+        "item4-title": "Tartib va yashash sharoitlari",
+        "item5-title": "Ma‘lumotlaringiz xavfsizligi",
+        "item6-title": "Kredit kartalari",
+        "item7-title": "Haydovchilarga qo‘yiladigan talablar va ularning majburiyatlari",
+        "content": "Iltimos, qo‘llab-quvvatlash jamoamiz bilan bog‘laning va qaytarish bo‘yicha ko‘rsatmalarga amal qiling"
+      }
+    },
+    "reviews": {
+      "title": "Sayohatchilar biz haqimizda nima deyishadi?",
+      "review": "Men ushbu saytning bronlash xizmati bilan juda mamnunman. Ro‘yxatdan o‘tish jarayoni tez edi, otel va sanalarni tanlash oson, to‘lov esa muammosiz amalga oshdi. O‘zbekiston bo‘ylab sayohatim ushbu ajoyib sayt tufayli unutilmas bo‘ldi."
+    }
+  },
+
+  "footer": {
+    "text": "O‘zbekiston mehmonxonalarini band qilish uchun eng yaxshi platforma",
+    "hotels": "Mehmonxonalar",
+    "houses-and-apartments": "Uylar va kvartiralar",
+    "apartments": "Kvartiralar",
+    "resort-hotels": "Kurort mehmonxonalar",
+    "hostels": "Hostellar",
+    "guest-houses": "Mehmon uylari",
+    "unique-accommodation": "Noyob joylar",
+    "reviews": "Sharhlar",
+    "travel-community": "Sayohatchilar jamoasi",
+    "seasonal-specials": "Mavsumiy maxsus takliflar",
+    "car-search": "Avtomobil qidirish",
+    "manage-bookings": "Bandlovlarni boshqarish",
+    "regions": "Hududlar",
+    "center": "Shaharlar",
+    "district": "Tumanlar",
+    "airports": "Aeroportlar",
+    "orients": "Belgilar"
+  },
+
+  "room-cleaning-page": {
+    "export-info": "Ma‘lumotlarni eksport qilish uchun kerakli parametrlarni tanlang",
+    "type": {
+      "label": "Turini tanlang",
+      "placeholder": "Tanlang"
+    },
+    "maid_type": {
+      "label": "Xizmatchini tanlang",
+      "placeholder": "Tanlang"
+    },
+    "room_type": {
+      "label": "Xona turi",
+      "placeholder": "Xona turini tanlang"
+    },
+    "statuses": {
+      "label": "Ro‘yxatga olish holati",
+      "placeholder": "Barcha holatlar"
+    },
+    "order_type": {
+      "label": "Tayinlangan",
+      "placeholder": "Barcha xizmatchilar"
+    },
+    "state": {
+      "label": "Holat",
+      "placeholder": "Barcha holatlar"
+    },
+    "note": {
+      "label": "Izoh",
+      "placeholder": "Ism kiriting"
+    },
+    "number_status": {
+      "label": "Xonaning holati",
+      "placeholder": "Barcha holatlar"
+    },
+    "add-note-modal": {
+      "title": "Izoh qo‘shish",
+      "description": "Xonaga tegishli batafsil ma’lumotlarni bilib olish uchun kerakli izoh qo‘shing"
+    }
+  },
+
+  "block": {
+    "modal-title": "Sanalarni o‘zgartirishni xohlaysizmi?",
+    "modal-description": "Xonaning bloklangan sanalarini tahrir qiling",
+    "start-date": "Boshlanish sanasi",
+    "end-date": "Tugash sanasi",
+    "unblock": "Sanalarni blokdan chiqarishmi?",
+    "unblock-description": "Ushbu sanalarni blokdan chiqarishni tasdiqlang.",
+    "unblock-btn": "Blokdan chiqarish"
+  },
+
+  "balance-page": {
+    "withdraw": "Hisobdan mablag‘larni yechish",
+    "last-transaction": "Oxirgi tranzaksiyalar",
+    "replenishment": "To‘ldirish",
+    "accrual": "Hisoblash",
+    "approved": "Tasdiqlangan",
+    "accrued": "Hisoblangan",
+    "accrual-amount": "Hisoblash summasi (UZS)",
+    "accrual-amount-rule": "Hisoblash summasini kiriting",
+    "recipient-name": "Qabul qiluvchining F.I.SH.",
+    "current-account": "Hisob raqam",
+    "current-account-rule": "Hisob raqamini kiriting",
+    "mfo-bank": "Bankning MFO",
+    "mfo-bank-rule": "Bankning MFO raqamini kiriting",
+    "inn": "STIR",
+    "inn-rule": "STIR raqamini kiriting",
+    "bank-name": "Bank nomi",
+    "bank-name-rule": "Bank nomini kiriting",
+    "fullname-recipient": "Qabul qiluvchining F.I.SH.",
+    "fullname-recipient-rule": "Qabul qiluvchining to‘liq ismini kiriting",
+    "withdraw-funds": "Mablag‘larni yechib olish",
+    "fullname": {
+      "label": "Mehmonning F.I.SH."
+    },
+    "method": {
+      "label": "To‘lov usuli"
+    },
+    "room": {
+      "label": "Xona"
+    },
+    "summ": {
+      "label": "To‘lov summasi"
+    },
+    "status": {
+      "label": "Holati"
+    },
+    "date-and-time": {
+      "label": "Sana va vaqt"
+    }
+  },
+
+  "status": {
+    "confirmed": "Tasdiqlangan",
+    "pending": "Kutilmoqda",
+    "canceled": "Bekor qilingan",
+    "free": "Bo‘sh",
+    "clean": "Toza",
+    "dirty": "Toza emas"
+  },
+
+  "all-maids-page": {
+    "add-a-maid": "Xizmatchi qo‘shish",
+    "employee-edited": "Xodim o‘zgartirildi!",
+    "employee-successfully-edited": "Xodim muvaffaqiyatli o‘zgartirildi",
+    "employee-added": "Xodim qo‘shildi!",
+    "employee-successfully-added": "Yangi xodim muvaffaqiyatli qo‘shildi",
+    "change-maid": "Xizmatchini o‘zgartirish",
+    "change-maid-in-a-click": "Bir marta bosish bilan xizmatchini o‘zgartirish.",
+    "add-a-maid-in-a-click": "Yangi xizmatchini bir marta bosish bilan qo‘shing.",
+    "maid-fullname": "Xizmatchining F.I.SH.",
+    "first_name": {
+      "label": "Xizmatchining ismi",
+      "placeholder": "Ismni kiriting"
+    },
+    "last_name": {
+      "label": "Xizmatchining familiyasi",
+      "placeholder": "Familiyani kiriting"
+    },
+    "schedule": {
+      "label": "Ish jadvali"
+    },
+    "not-found": {
+      "title": "Hech narsa topilmadi",
+      "subtitle": "Hozirda mahsulotlar va xizmatlar kategoriyalari mavjud emas. Yangi kategoriyalarni hozir qo‘shing.",
+      "action-text": "Foydalanuvchi qo‘shish"
+    },
+    "delete-modal": {
+      "title": "Xizmatchini o‘chirish kerakmi?",
+      "subtitle": "Ushbu xodimni haqiqatdan o‘chirmoqchi ekanligingizni tasdiqlang?"
+    },
+    "reset-modal": {
+      "title": "Parolni qayta o‘rnatish",
+      "subtitle": "Ushbu foydalanuvchi uchun parolni qayta o‘rnatishni tasdiqlang."
+    }
+  },
+  "content-page": {
+    "hotel_name": {
+      "label": "Mehmonxona nomi",
+      "placeholder": "Mehmonxonangiz nomini kiriting"
+    },
+    "hotel_description": {
+      "label": "Mehmonxona tavsifi",
+      "placeholder": "Mehmonxonangiz haqida mehmonlarga o‘zbek tilida aytib bering"
+    },
+    "address": {
+      "label": "Manzil",
+      "placeholder": "Mehmonxonangiz manzilini kiriting"
+    },
+    "statuses": {
+      "label": "Qulayliklar va xizmatlarni qo‘shing",
+      "placeholder": "Tanlang"
+    },
+    "link-to-booking-conditions": "Bandlash shartlariga havola"
+  },
+
+  "new-booking-page": {
+    "title": "Yangi bandlov",
+    "guest-search-in-the-system": "Milliy turizm tizimida mehmon qidirish",
+    "edit-booking-confirmation": "Bandlovni tahrirlashni tasdiqlashni yuborish",
+    "send-booking-confirmation": "Bandlovni tasdiqlashni yuborish",
+    "send-booking-confirmation-info": "Bandlovdan so‘ng tasdiq xatini elektron pochta orqali yubormoqchimisiz?",
+    "add-children": "Bolalarni qo‘shish",
+    "add-children-info": "16 yoshgacha bo‘lgan barcha bolalarni ko‘rsating",
+    "delete-room-modal": {
+      "title": "Xonani o‘chirmoqchimisiz?",
+      "subtitle": "Bu turdagi xonani haqiqatan ham o‘chirishni xohlayotganingizni tasdiqlaysizmi?"
+    },
+    "citizenship": {
+      "label": "Fuqarolik",
+      "placeholder": "Mehmonning fuqaroligini tanlang",
+      "placeholder-birth": "Mehmonning tug‘ilgan mamlakatini tanlang",
+      "placeholder-where": "Mehmonning kelib chiqishi mamlakatini tanlang"
+    },
+    "document_type": {
+      "label": "Hujjat turi",
+      "placeholder": "Mehmonning hujjat turini tanlang"
+    },
+    "pinfl": {
+      "label": "PINFL",
+      "placeholder": "Mehmonning PINFL raqamini kiriting"
+    },
+    "passport": {
+      "label": "Pasport berilgan sana"
+    },
+    "passport-issuer": {
+      "label": "Pasportni bergan tashkilot",
+      "placeholder": "Pasport berilgan joyni kiriting"
+    },
+    "lastname": {
+      "label": "Familiyasi",
+      "placeholder": "Mehmonning familiyasini kiriting"
+    },
+    "name": {
+      "label": "Ismi",
+      "placeholder": "Mehmonning ismini kiriting"
+    },
+    "surname": {
+      "label": "Otasining ismi",
+      "placeholder": "Mehmonning otasining ismini kiriting"
+    },
+    "birthplace": {
+      "label": "Tug‘ilgan davlat",
+      "placeholder": "Tug‘ilgan davlatni tanlang"
+    },
+    "origin_country": {
+      "label": "Kelgan davlati",
+      "placeholder": "Davlatni tanlang"
+    },
+    "gender": {
+      "label": "Jinsi",
+      "placeholder": "Jinsini tanlang"
+    },
+    "arrival_date": {
+      "label": "Kelgan sana"
+    },
+    "arrive_days": {
+      "label": "Qancha kun qoladi",
+      "placeholder": "Kunlar sonini kiriting"
+    },
+    "visit_type": {
+      "label": "Vizit turi",
+      "placeholder": "Turini tanlang"
+    },
+    "payment_amount": {
+      "label": "To‘lov miqdori",
+      "placeholder": "Mehmonning ismini kiriting"
+    },
+    "guest_type": {
+      "label": "Mehmon turi",
+      "placeholder": "Mehmon turini tanlang"
+    },
+    "child_fullname": {
+      "label": "Bolani F.I.SH.",
+      "placeholder": "Mehmonning familiyasini kiriting"
+    },
+    "birthdate": {
+      "label": "Tug‘ilgan sana"
+    }
+  },
+
+  "units-page": {
+    "add-unit": "Blok qo‘shish",
+    "unit-name": "Blok nomi",
+    "edit-unit": "Blokni tahrirlash",
+    "delete-unit": "Blokni o‘chirish",
+    "delete-unit-text": "Blokni o‘chirishni tasdiqlaysizmi"
+  },
+
+  "fields": {
+    "gender": {
+      "label": "Jinsi",
+      "placeholder": "Jinsini tanlang"
+    },
+    "guest": {
+      "label": "Mehmonni qidirish",
+      "placeholder": "Mehmonning ismini kiriting"
+    },
+    "room": {
+      "label": "Xona turi",
+      "placeholder": "Xona turini tanlang"
+    },
+    "sources": {
+      "label": "Manba",
+      "placeholder": "Manbani tanlang"
+    },
+    "payment_status": {
+      "label": "To‘lov holati",
+      "placeholder": "Holatni tanlang"
+    },
+    "payment_amount": {
+      "label": "To‘lov miqdori",
+      "placeholder": "Summani kiriting"
+    },
+    "current_room": {
+      "label": "Hozirgi xona"
+    },
+    "current_date": {
+      "label": "Yashash davri",
+      "placeholder": "Tanlang",
+      "suffix": "8 kun"
+    },
+    "new_room": {
+      "label": "Yangi xona"
+    },
+    "new_date": {
+      "label": "Yashash davri",
+      "placeholder": "Tanlang",
+      "suffix": "8 kun"
+    },
+    "period": {
+      "label": "Davr",
+      "placeholder": "Davrni tanlang",
+      "suffix": "yil"
+    },
+    "format": {
+      "label": "Ko‘rinish formati",
+      "placeholder": "Formatni tanlang",
+      "options": {
+        "month": "Oy",
+        "day": "Kun",
+        "week": "Hafta"
+      }
+    },
+    "group": {
+      "label": "Guruhlash"
+    },
+    "time-period": {
+      "label-start": "Davr boshlanishi",
+      "label-end": "Davr tugashi",
+      "placeholder": "Sanani tanlang"
+    },
+    "order": {
+      "label": "Kalit bo‘yicha qidiruv",
+      "placeholder": "Ism yoki raqamni kiriting"
+    },
+    "arrival-type": {
+      "label": "Kelish turi",
+      "placeholder": "Turi tanlang"
+    },
+    "transaction-type": {
+      "label": "Tranzaksiya turi"
+    },
+    "transaction-status": {
+      "label": "Tranzaksiya holati"
+    },
+    "payment-type": {
+      "label": "To‘lov turi",
+      "placeholder": "Barcha to‘lov turlari"
+    },
+    "booking-balance": {
+      "label": "Bandlov balansi",
+      "placeholder": "To‘lov turini tanlang"
+    },
+    "max-adults": {
+      "label": "Maksimal kattalar soni",
+      "placeholder": "Maksimal kattalar sonini kiriting"
+    },
+    "max-children": {
+      "label": "Maksimal bolalar soni",
+      "placeholder": "Maksimal bolalar sonini kiriting"
+    },
+    "facilities": {
+      "label": "Afzalliklar",
+      "placeholder": "Afzalliklarni tanlang",
+      "error": "Iltimos, imtiyozlarni tanlang"
+    },
+    "room-photos": {
+      "label": "Xona rasmlari",
+      "placeholder": "Rasmlarni tanlang"
+    },
+    "regions": {
+      "label": "Hudud",
+      "placeholder": "Hududni tanlang"
+    },
+    "districts": {
+      "label": "Tuman",
+      "placeholder": "Tumanni tanlang"
+    },
+    "goods-and-services": {
+      "label": "Mahsulot / xizmat",
+      "placeholder": "Mahsulot / xizmat tanlang"
+    },
+    "checkin-start": {
+      "label": "Kirishni boshlash"
+    },
+    "checkout-end": {
+      "label": "Chiqishni tugatish"
+    },
+    "unit": {
+      "label": "Blok",
+      "placeholder": "Blokni tanlang"
+    },
+    "service_quantity": {
+      "label": "Xizmat soni",
+      "placeholder": "Xizmat sonini kiriting",
+      "error": "Iltimos, xizmat sonini kiriting"
+    }
+  },
+  "chart": {
+    "nights-sold": "Sotilgan kechalar soni",
+    "source-revenue": "Manbalar bo‘yicha daromad",
+    "room-load": "Xonalarning daromadi va bandligi",
+    "booking-status": "Bandlov holatlari bo‘yicha"
+  },
+
+  "common": {
+    "check-ins": "Kirishlar",
+    "check-in": "Kirish",
+    "check-outs": "Chiqishlar",
+    "check-out": "Chiqish",
+    "empty-dates": "Bo‘sh sanalar",
+    "included": "Kiritilgan",
+    "excluded": "Kiritilmagan",
+    "sale": "Sotuv",
+    "implemented": "Amalga oshirilgan",
+    "no-show": "Kelmagan",
+    "staying": "Yashayotganlar",
+    "total-pay": "Umumiy to‘lov",
+    "canceled": "Bekor qilingan",
+    "rebooking": "Qayta bandlov",
+    "breakfast": "Nonushta",
+    "details": "Tafsilotlar",
+    "guests": "Mehmonlar",
+    "nights": "Tunlar",
+    "room-number": "Xona №",
+    "status": "Holat",
+    "total": "Jami",
+    "action": "Harakat",
+    "calendar": "Kalendar",
+    "main": "Asosiy",
+    "reports": "Hisobotlar",
+    "bookings": "Bandlovlar",
+    "filter-results": "Filtr natijalari",
+    "cash": "Naqd pul",
+    "debt": "Qarzdorlik",
+    "reset": "Tiklash",
+    "paid": "To‘langan",
+    "not_paid": "To‘lanmagan",
+    "half_paid": "Qisman to‘langan",
+    "rooms": "Xonalar",
+    "blocked": "Bloklangan",
+    "storage": "Ombor",
+    "needs-renovation": "Ta’mirlash kerak",
+    "another-reason": "Boshqa sabab",
+    "electrical-problems": "Elektr muammolari",
+    "new-booking": "Yangi bandlov",
+    "room-saving": "Xona saqlash",
+    "block-dates": "Sanalarni bloklash",
+    "cancel": "Bekor qilish",
+    "block": "Bloklash",
+    "check-in-a-guest": "Mehmonni joylash",
+    "relocate-guest": "Mehmonni ko‘chirish",
+    "relocate": "Ko‘chirish",
+    "booking-details": "Bandlov tafsilotlari",
+    "tariff-and-numbers": "Tariflar va xonalar",
+    "tariff-plans": "Tarif rejalari",
+    "add-tariff": "Tarif qo‘shish",
+    "save": "Saqlash",
+    "save-changes": "O‘zgarishlarni saqlash",
+    "successfully-changed": "Muvaffaqiyatli o‘zgartirildi",
+    "successfully-added": "Muvaffaqiyatli qo‘shildi",
+    "new-tariff-plan-added": "Yangi tarif rejasi qo‘shildi",
+    "yes": "Ha",
+    "no": "Yo‘q",
+    "day": "Kun",
+    "days": "Kun",
+    "days2": "Kun",
+    "type-payment": "To‘lov turlari",
+    "add-type-payment": "To‘lov turini qo‘shish",
+    "pagination-next": "Keyingi",
+    "pagination-prev": "Oldingi",
+    "edit-btn": "Tahrirlash",
+    "delete-btn": "O‘chirish",
+    "changes-saved": "O‘zgarishlar saqlandi!",
+    "changes-successfully-saved": "O‘zgarishlaringiz muvaffaqiyatli saqlandi",
+    "room-type": "Xona turlari",
+    "active": "Faol",
+    "inactive": "Nofaol",
+    "edit": "Tahrirlash",
+    "delete": "O‘chirish",
+    "next": "Keyingi",
+    "prev": "Oldingi",
+    "tariff-name": "Tarif nomi",
+    "validity-period": "Amal qilish muddati",
+    "meal-plan": "Ovqatlanish rejasi",
+    "min-stay-nights": "Minimal tunlar soni",
+    "order-advance-days": "Kirishdan oldingi kunlar soni",
+    "services": "Xizmatlar",
+    "price": "Narx",
+    "sum": "so‘m",
+    "room-types": "Xona turlari",
+    "units": "Bloklar",
+    "booking": "Bandlov",
+    "export-data": "Ma’lumotlarni eksport qilish",
+    "created-at": "Yaratilgan sana",
+    "granted": "Berilgan",
+    "not-granted": "Berilmagan",
+    "departure": "Ketish",
+    "confirmed": "Tasdiqlangan",
+    "in-room": "Xonada",
+    "guest-name": "Mehmon ismi",
+    "check-in-date": "Kirish sanasi",
+    "check-out-date": "Chiqish sanasi",
+    "booking-number": "Bandlov raqami",
+    "room-no": "Xona №",
+    "booking-date": "Bandlov sanasi",
+    "arrival": "Kelish",
+    "reside": "Yashash",
+    "enter-a-date": "Sanani kiriting",
+    "first-name": "Ism",
+    "last-name": "Familiya",
+    "passport-details": "Pasport ma’lumotlari",
+    "document-details": "Hujjat ma’lumotlari",
+    "birthday": "Tug‘ilgan yili",
+    "email": "E-mail",
+    "phone-number": "Telefon raqami",
+    "country": "Davlat",
+    "history": "Tarix",
+    "icon": "Ikonka",
+    "category-of-goods": "Tovar va xizmatlar kategoriyasi",
+    "goods-and-services": "Tovarlar va xizmatlar",
+    "service-name": "Xizmat nomi",
+    "role-management": "Rollarni boshqarish",
+    "new-role": "Yangi rol",
+    "function": "Funktsionallik",
+    "select-all": "Hammasini tanlash",
+    "saving": "Saqlash...",
+    "nothing-select": "Hech narsa tanlanmagan",
+    "nothing-select-desc": "Kerakli xonalarni qo‘shing",
+    "user-management": "Foydalanuvchilarni boshqarish",
+    "name-user": "Foydalanuvchi ismi",
+    "surname-user": "Foydalanuvchi familiyasi",
+    "role": "Rol",
+    "login": "Login",
+    "password": "Parol",
+    "cancel-action": "Harakatni bekor qilish",
+    "male": "Erkak",
+    "female": "Ayol",
+    "generate-password": "Parol yaratish",
+    "copy-password": "Nusxa olish",
+    "reset-password": "Parolni tiklash",
+    "reset-password-desc": "Ushbu foydalanuvchi uchun parolni tiklashni tasdiqlang",
+    "room-cleaning": "Xonani tozalash",
+    "maids": "Xizmatchilar",
+    "export": "Eksport qilish",
+    "room": "Xona",
+    "state": "Holati",
+    "number-status": "Xonaning holati",
+    "registration-status": "Ro‘yxat holati",
+    "housemaid": "Xizmatchi",
+    "do-not-disturb": "Bezovta qilmang",
+    "notes": "Izohlar",
+    "no-notes": "Izohlar mavjud emas",
+    "user-deleted": "Foydalanuvchi o‘chirildi!",
+    "user-successfully-deleted": "Foydalanuvchi {{name}} muvaffaqiyatli o‘chirildi",
+    "all-maids": "Barcha xizmatchilar",
+    "change": "O‘zgartirish",
+    "add": "Qo‘shish",
+    "mon": "Dushanba",
+    "tue": "Seshanba",
+    "wed": "Chorshanba",
+    "thu": "Payshanba",
+    "fri": "Juma",
+    "sat": "Shanba",
+    "sun": "Yakshanba",
+    "availability-status": "Mavjudlik holati",
+    "content-for": "Milliy turizm uchun kontent",
+    "basic-information": "Asosiy ma’lumotlar",
+    "hotel-photos": "Mehmonxona rasmlari",
+    "facilities-and-services": "Qulayliklar va xizmatlar",
+    "accommodation-terms": "Joylashish shartlari",
+    "file-uploaded-successfully": "{{name}} fayl muvaffaqiyatli yuklandi.",
+    "file-upload-failed": "{{name}} faylni yuklash amalga oshmadi.",
+    "photos": "Rasmlar",
+    "select-or-drag-one-photo": "1 ta rasmni tanlang yoki tortib tashlang",
+    "max-size-5-mb": "Maksimal hajmi: 5 MB.",
+    "select": "Tanlash",
+    "children-beds": "Bolalar uchun karavotlar",
+    "allowed": "Ruxsat etilgan",
+    "age-restrictions": "Yosh cheklovlari",
+    "no-restrictions": "Cheklovlar yo‘q",
+    "pets": "Uy hayvonlari",
+    "restricted": "Ruxsat etilmaydi",
+    "payment-methods": "To‘lov usullari",
+    "select-payment-methods": "To‘lov usullarini tanlang",
+    "bookings-route": "Bandlovlar",
+    "analytics": "Analitika",
+    "booking-balances": "Bandlov balanslari",
+    "hospitals": "Mehmonxona",
+    "notifications": "Bildirishnomalar",
+    "view": "Ko‘rish",
+    "view-all-notifications": "Barcha bildirishnomalarni ko‘rish",
+    "join": "Qo‘shilish",
+    "all-reserved": "Barcha huquqlar himoyalangan.",
+    "welcome": "Xush kelibsiz!",
+    "sign-in-text": "Mehmonxonalarni boshqarish: Barcha operatsiyalarni oson va tez amalga oshirish",
+    "login-account": "Hisobga kirish",
+    "support": "Qo‘llab-quvvatlash bilan bog‘lanish",
+    "back": "Orqaga",
+    "continue": "Davom etish",
+    "search-for-a-guest": "Mehmonni qidirish",
+    "additional-information": "Qo‘shimcha ma’lumot",
+    "information-about-children": "Bolalar haqida ma’lumot",
+    "guest-information": "Mehmon haqida ma’lumot",
+    "pinfl": "PINFL",
+    "select-room": "Xonani tanlang",
+    "add-a-child": "Bola qo‘shish",
+    "gender": "Jinsi",
+    "hotel": "Mehmonxona",
+    "period": "Davr",
+    "comments": "Izoh",
+    "reservation-successfully-created": "Bandlov muvaffaqiyatli yaratildi!",
+    "reserved": "Bronlandi",
+    "selected-number": "Tanlangan xona",
+    "continue-without-sending": "Yubormasdan davom etish",
+    "edit-without-sending": "Tahrirlash va yubormasdan davom etish",
+    "submit-and-continue": "Yuborish va davom etish",
+    "edit-and-continue": "Tahrirlash va davom etish",
+    "nothing-selected": "Hech narsa tanlanmagan",
+    "nothing-selected-info": "Kerakli xonalarni qo‘shing",
+    "indicate-your-age": "Yoshingizni ko‘rsating",
+    "year": "Yosh",
+    "price-per-room": "Xona narxi",
+    "taxes": "Soliqlar",
+    "fees": "To‘lovlar",
+    "stopped": "Joylashdi",
+    "left": "Ketdi",
+    "waiting": "Kutilmoqda",
+    "lives": "Yashamoqda",
+    "cancelled": "Bekor qilingan",
+    "editted-save": "O‘zgarishlarni saqlash",
+    "archive": "Arxivlash",
+    "actives": "Faollar",
+    "archives": "Arxivlanganlar",
+    "actived": "Faollashtirish",
+    "choose-file": "Faylni tanlang",
+    "balance": "Balans",
+    "translations": "Tarjimlar",
+    "edit-date": "Sanalarni tahrirlash",
+    "unblock-date": "Sanalarni blokdan chiqarish",
+    "nightss": " tunlar",
+    "night": "tun",
+    "new-tariff": "Yangi tarif",
+    "edit-tariff": "Tarifni tahrirlash",
+    "working": "Ishlaydi",
+    "unworking": "Ishlamaydi",
+    "clean": "Tozalangan",
+    "unclean": "Tozalanmagan",
+    "set-as-main": "Asosiy qilish",
+    "birthdays": "Tug‘ilgan kun",
+    "report": "Hisobot",
+    "passport": "Pasport",
+    "id-card": "Shaxs guvohnomasi",
+    "military-ticket": "Harbiy guvohnoma",
+    "drivers-license": "Haydovchilik guvohnomasi",
+    "other": "Boshqa",
+    "notify-deletion": "Bekor qilish haqida xabar berish",
+    "number-of-rooms": "Xonalar soni",
+    "actions": "Harakatlar",
+    "payments": "To‘lovlar",
+    "guest-detail": "Mehmonlar tafsiloti",
+    "booking-history": "Bandlov tarixi",
+    "add-payment": "To‘lovni qo‘shish",
+    "date": "Sana",
+    "add-payment-desc": "To‘lov imkoniyatlarini tanlang",
+    "add-service": "Xizmat qo‘shing",
+    "select-service": "Xizmatni tanlang",
+    "quantity": "Miqdori",
+    "middle-name": "Otasining ismi",
+    "add-guests": "Mehmon qo‘shing",
+    "add-guests-text": "Mehmonlarni bron qilish uchun kerakli parametrlarni qo‘shing",
+    "staff": "Xodim",
+    "text": "Tekst",
+    "add-card": "Karta qo‘shish",
+    "add-card-desc": "Uni qo‘shish uchun kerakli xarita parametrlarini qo‘shing bron qilish",
+    "select-perod-first": "Davrni",
+    "select-perod-second": "tanlang",
+    "reception": "Qabulxonadan",
+    "number-card": "Karta raqami",
+    "number": "№ raqami",
+    "main-guest": "Asosiy mehmon",
+    "from": "",
+    "contact-info": "Bog‘lanish uchun ma‘lumot",
+    "name": "Nomi",
+    "accommodation": "Turar joy",
+    "error-desc": "Nimadir xato ketdi, keyinroq qayta urinib ko‘ring",
+    "error": "Xatolik yuz berdi",
+    "no-options": "Hech qanday variant mavjud emas",
+    "forgot-password": "Parolni unutdingizmi?",
+    "transaction": "Tranzaksiya",
+    "add-guest": "Mehmon qo‘shing",
+    "add-guest-desc": "Mehmonlarni bron qilish uchun kerakli parametrlarni qo‘shing",
+    "server-title": "Server bilan ulanishda xatolik",
+    "server-desc": "Iltimos, keyinroq urinib ko‘ring.",
+    "my-account": "Mening hisobim",
+    "hotel-managment": "Mehmonxona boshqaruvi",
+    "dark-mode": "Qorong‘u mavzu",
+    "settings-system": "Tizim sozlamalari",
+    "exit": "Hisobdan chiqish",
+    "exit-title": "Hisobingizdan chiqmoqchimisiz?",
+    "exit-desc": "Siz haqiqatan ham hisobingizdan chiqmoqchi ekanligingizni tasdiqlaysizmi?",
+    "not-found": "Hech narsa topilmadi",
+    "not-found-text": "Afsuski, so‘rovingiz bo‘yicha hech narsa topilmadi, filtr sozlamalarini o‘zgartirib ko‘ring yoki foydalanuvchi qo‘llanmasini ko‘ring",
+    "reset-filter": "Filtrni tozalash",
+    "no-guest-history": "Ma‘lumot mavjud emas"
+  },
+  "card-option": {
+    "owner": "Karta egasi",
+    "info": "Karta tafsilotlari",
+    "exp-date": "Yaroqlilik muddati",
+    "type": "Tipi",
+    "type-payment": "Karta turi",
+    "rule": "Sanani MM/YY formatida kiriting (masalan, 06/26)"
+  },
+  "video-instruction": {
+    "title": "Video ko‘rsatma",
+    "description": "Quyida bandlovlar bo‘limi bilan ishlash, shuningdek, platformamizning boshqa muhim bo‘limlari bo‘yicha video ko‘rsatma bilan tanishishingiz mumkin",
+    "watch-video": "Videoni tomosha qilish",
+    "next-time": "Keyingi safar"
+  },
+  "visit-type": {
+    "work": "Ish tajribasi",
+    "education": "Ta‘lim",
+    "tourist": "Turizm",
+    "private": "Shaxsiy",
+    "other": "Boshqa",
+    "visiting_friends_relatives": "Do‘stlarga tashrif / Do‘stlarga tashrif",
+    "health_and_wellness_procedures": "Tibbiy va sog‘liqni saqlash protseduralari",
+    "religion_pilgrimage": "Din/ziyorat",
+    "visiting_shops": "Do‘konlarga tashrif buyurish",
+    "transit": "Tranzit",
+    "sports_and_culture": "Sport va madaniyat",
+    "for_leisure": "Ta‘tilda",
+    "guest": "Mehmon",
+    "official": "Xizmat",
+    "as_a_compatriot": "Vatandosh sifatida",
+    "as_an_honorary_citizen": "Faxriy fuqaro sifatida",
+    "as_an_investor": "Investor sifatida"
+  },
+  "guest-type": {
+    "pensioner": "Pensioner",
+    "student": "Talaba",
+    "dependent": "Qaramoqdagi shaxs",
+    "other": "Boshqa"
+  },
+  "errors": {
+    "server": "Serverda xatolik yuz berdi (500)",
+    "general": "Xatolik yuz berdi"
+  }
+}

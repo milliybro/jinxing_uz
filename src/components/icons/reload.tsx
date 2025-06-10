@@ -1,0 +1,25 @@
+import Icon from '@ant-design/icons/lib/components/Icon'
+
+import type { ReactElement, FC } from 'react'
+import type { CustomIconComponentProps as IProps } from '@ant-design/icons/lib/components/Icon'
+
+const defaultIcon: FC = () => (
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 21 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M14.0572 1.54297L14.6273 3.76315C14.7072 4.07442 14.6011 4.4039 14.3545 4.60995C14.1078 4.81599 13.7648 4.86187 13.4727 4.72785C12.6466 4.34884 11.7247 4.13662 10.75 4.13662C7.17286 4.13662 4.29167 6.99595 4.29167 10.5003C4.29167 11.7281 4.64379 12.873 5.2544 13.8448L3.84319 14.7315C3.07117 13.5028 2.625 12.052 2.625 10.5003C2.625 6.055 6.27299 2.46995 10.75 2.46995C11.3965 2.46995 12.0261 2.54474 12.63 2.68619L12.4428 1.95754L14.0572 1.54297ZM17.2083 10.5003C17.2083 9.27237 16.8562 8.12752 16.2456 7.15574L17.6568 6.26902C18.4288 7.49769 18.875 8.94845 18.875 10.5003C18.875 14.9455 15.227 18.5305 10.75 18.5305C10.1035 18.5305 9.47392 18.4558 8.87002 18.3143L9.05714 19.043L7.44286 19.4575L6.87268 17.2374C6.79275 16.9261 6.89891 16.5966 7.14552 16.3905C7.39214 16.1845 7.73526 16.1386 8.02734 16.2726C8.85343 16.6517 9.77533 16.8639 10.75 16.8639C14.3272 16.8639 17.2083 14.0045 17.2083 10.5003Z"
+      fill="currentColor"
+    />
+  </svg>
+)
+
+export default function ReloadIcon(props: Partial<IProps>): ReactElement {
+  return <Icon component={defaultIcon} {...props} />
+}

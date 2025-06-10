@@ -1,0 +1,26 @@
+# stages:
+#   - build
+
+# build-job:
+#   stage: build
+#   only:
+#     - main
+
+#   tags:
+#     - emehmon-dev
+#   script:
+#     - cd /home/management_front/front
+#     - pwd
+#     - whoami
+#     - git checkout main || fail
+#     - git reset --hard origin/main || fail
+#     - git pull origin main || fail
+#     - yarn install
+#     - yarn run build
+#     - rm -Rf /home/management_back/back/templates/front/assets/*
+#     - find /home/management_back/back/static -maxdepth 1 -type f -exec rm -f {} +
+#     - cp -R dist/* /home/management_back/back/templates/front/ # copy build files to backend
+#     - cd /home/management_back/back/
+#     - docker compose down -v
+#     - docker compose up -d --build
+#     - docker compose run --rm management_app python3 manage.py collectstatic --noinput # collectstatic files at backend
