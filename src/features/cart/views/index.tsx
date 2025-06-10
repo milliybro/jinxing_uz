@@ -3,8 +3,7 @@ import { useCartStore } from '@/store/cart-store'
 import { formatPrice } from '@/features/welcome/helpers/formatPrice'
 
 export default function CartPage(): React.ReactElement {
-  const { cart, addToCart, removeFromCart, increment, decrement } =
-    useCartStore()
+  const { cart, increment, decrement } = useCartStore()
 
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.price * item.count,

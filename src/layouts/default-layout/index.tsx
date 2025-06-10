@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function DefaultLayout(props: Props): React.ReactElement {
-  const { children, sidebarRoutes } = props
+  const { children } = props
 
   // const { defaultLanguage, handleLanguageChange } =
   //   useDefaultLayoutState(sidebarRoutes)

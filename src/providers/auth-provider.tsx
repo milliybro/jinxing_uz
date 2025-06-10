@@ -26,28 +26,28 @@ export default function AuthProvider(props: Props): React.ReactElement {
   const [isAuth, setIsAuth] = useState<boolean>(Boolean(accessToken))
   const value = useMemo(() => ({ isAuth, setIsAuth }), [isAuth])
 
-  // useEffect(() => {
-  //   if (!accessToken && window.Telegram && window.Telegram.WebApp) {
-  //     const tg = window.Telegram.WebApp
-  //     const user = tg.initDataUnsafe.user
-  //     if (user && user.id) {
-  //       mutate({ telegram_id: user.id.toString() })
-  //     }
-  //   }
-  // }, [accessToken, mutate])
   useEffect(() => {
-    if (!accessToken) {
-      let telegramId
-
-      if (window.Telegram && window.Telegram.WebApp?.initDataUnsafe?.user?.id) {
-        telegramId = window.Telegram.WebApp.initDataUnsafe.user.id
-      } else {
-        telegramId = '1930372151'
+    if (!accessToken && window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp
+      const user = tg.initDataUnsafe.user
+      if (user && user.id) {
+        mutate({ telegram_id: user.id.toString() })
       }
-
-      mutate({ telegram_id: telegramId.toString() })
     }
   }, [accessToken, mutate])
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     let telegramId
+
+  //     if (window.Telegram && window.Telegram.WebApp?.initDataUnsafe?.user?.id) {
+  //       telegramId = window.Telegram.WebApp.initDataUnsafe.user.id
+  //     } else {
+  //       telegramId = '1930372151'
+  //     }
+
+  //     mutate({ telegram_id: telegramId.toString() })
+  //   }
+  // }, [accessToken, mutate])
 
   return (
     <authContext.Provider value={value}>

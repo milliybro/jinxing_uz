@@ -1,9 +1,7 @@
 import request from '@/utils/axios'
 
 import type { ICountry, IDistrict, IRegion, ListResponse } from '@/types'
-import type { IRooms } from '@/features/tariff-plans/types'
-import { ICleaner } from '@/features/room-cleaning/types'
-import { AuthResponse, AuthTokens } from '@/features/auth/types'
+import { AuthTokens } from '@/features/auth/types'
 
 export async function login(data: {
   telegram_id: string
@@ -52,11 +50,9 @@ export async function getRegions(
   return res
 }
 
-export async function getRoomsList(
-  params?: any,
-): Promise<ListResponse<IRooms[]>> {
+export async function getRoomsList(params?: any): Promise<ListResponse<any[]>> {
   const { branch, ...rest } = params
-  const res: ListResponse<IRooms[]> = await request({
+  const res: ListResponse<any[]> = await request({
     url: `/placements/branches/${branch}/rooms/room_shortinfo/`,
     method: 'get',
     params: rest,
@@ -67,9 +63,9 @@ export async function getRoomsList(
 
 export async function getRoomFacility(
   params?: any,
-): Promise<ListResponse<IRooms[]>> {
+): Promise<ListResponse<any[]>> {
   const { branch, ...rest } = params
-  const res: ListResponse<IRooms[]> = await request({
+  const res: ListResponse<any[]> = await request({
     url: `/placement_references/branches/${branch}/r_facility/`,
     method: 'get',
     params: rest,
@@ -78,8 +74,8 @@ export async function getRoomFacility(
   return res
 }
 
-export async function getStaff(params: any): Promise<ListResponse<ICleaner[]>> {
-  const res: ListResponse<ICleaner[]> = await request({
+export async function getStaff(params: any): Promise<ListResponse<any[]>> {
+  const res: ListResponse<any[]> = await request({
     url: '/account/staffs/',
     method: 'get',
     params,

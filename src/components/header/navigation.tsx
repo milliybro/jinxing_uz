@@ -10,7 +10,7 @@ const Navigation = () => {
   const { pathname } = useLocation()
   const cart = useCartStore((state) => state.cart)
 
-  const cartCount = cart.reduce((sum, item) => sum + item.count, 0)
+  // const cartCount = cart.reduce((sum, item) => sum + item.count, 0)
 
   const routes = [
     {
