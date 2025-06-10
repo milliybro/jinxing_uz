@@ -1,8 +1,8 @@
 import { Suspense, useEffect, useState } from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 import Spinner from '@/components/spinner'
-import { useAuthContext } from '@/contexts'
+// import { useAuthContext } from '@/contexts'
 import DefaultLayout from '@/layouts/default-layout'
 
 import type { CustomRoute } from '@/types'
@@ -16,10 +16,10 @@ const SpinnerWrapper = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowSpinner(false) 
+      setShowSpinner(false)
     }, 1000)
 
-    return () => clearTimeout(timer) 
+    return () => clearTimeout(timer)
   }, [])
 
   return showSpinner ? <Spinner /> : null
@@ -27,13 +27,13 @@ const SpinnerWrapper = () => {
 export default function Root(props: Props): React.ReactElement {
   const { getRoutes } = props
 
-  const { isAuth } = useAuthContext()
+  // const { isAuth } = useAuthContext()
 
   const routes = getRoutes()
 
-  if (!isAuth) {
-    return <Navigate to="/welcome" replace />
-  }
+  // if (!isAuth) {
+  //   return <Navigate to="/welcome" replace />
+  // }
 
   return (
     <DefaultLayout sidebarRoutes={routes[0].children as CustomRoute[]}>
