@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { useCartStore } from '@/store/cart-store'
 import CloseIcon from '@/components/icons/close'
 import CheckIcon from '@/components/icons/check'
+import logo from '../../../assets/jinxing.jpg'
 
 export default function Welcome(): React.ReactElement {
   const [open, setOpen] = useState(false)
@@ -51,10 +52,13 @@ export default function Welcome(): React.ReactElement {
   }
 
   return (
-    <div className="container h-full py-6">
-      <Typography.Text className="text-[28px] font-semibold">
-        Jinxing Uz
-      </Typography.Text>
+    <div className="container h-full py-6 pb-[60px]">
+      <div className="flex items-center gap-2">
+        <img src={logo} className="w-[28px] h-[28px]" />
+        <Typography.Text className="text-[28px] font-semibold">
+          Jinxing Uz
+        </Typography.Text>
+      </div>
       <div className="my-3">
         <Carousel autoplay dots={false}>
           {products?.results.map((product: any, index: number) => (
@@ -154,81 +158,84 @@ export default function Welcome(): React.ReactElement {
         bodyStyle={{ padding: 0, backgroundColor: '#fafafa' }}
         zIndex={100}
       >
-        <button
-          onClick={onClose}
-          className="absolute top-8 right-3 z-50 bg-white rounded-full px-2 py-1 text-xl shadow"
-        >
-          <CloseIcon />
-        </button>
+        <div className="overflow-y-visible pb-[200px]">
+          <button
+            onClick={onClose}
+            className="absolute top-8 right-3 z-50 bg-white rounded-full px-2 py-1 text-xl shadow"
+          >
+            <CloseIcon />
+          </button>
 
-        {selectedProduct && (
-          <>
-            <Image
-              src={selectedProduct.image}
-              height={400}
-              alt={selectedProduct.name}
-            />
-            <div className="px-4 py-2">
-              <h4 className="text-[#FDBB31]">
-                {selectedProduct?.category?.name}
-              </h4>
-              <h3 className="text-lg font-semibold mb-2">
-                {selectedProduct.name}
-              </h3>
-              <h2 className="font-bold text-[28px]">
-                {formatPrice(selectedProduct?.price)}{' '}
-              </h2>
-              <p className="text-[14px]">
-                <span className="font-semibold">Mahsulot ta'rifi: </span>
-                {selectedProduct.description}
-              </p>
-              <h2 className="text-[16px]">
-                <span className="font-semibold">SKU:</span>{' '}
-                {selectedProduct?.sku}{' '}
-              </h2>
-              <p className="text-green-500 ">
-                <CheckIcon /> {selectedProduct?.count} dona xarid qilish mumkin
-              </p>
-              <div className="mt-6">
-                {count === 0 ? (
-                  <button
-                    onClick={() =>
-                      addToCart(
-                        {
-                          id: selectedProduct.id,
-                          name: selectedProduct.name,
-                          price: selectedProduct.price,
-                          image: selectedProduct.image,
-                          maxCount: selectedProduct.count,
-                        },
-                        1,
-                      )
-                    }
-                    className="w-full bg-white border-black border rounded-[12px] px-4 py-[14px] text-[16px] font-medium"
-                  >
-                    Qo‘shish
-                  </button>
-                ) : (
-                  <div className="w-full flex justify-between items-center rounded-[12px] mt-2 bg-white px-4 py-2 border border-black">
+          {selectedProduct && (
+            <>
+              <Image
+                src={selectedProduct.image}
+                height={400}
+                alt={selectedProduct.name}
+              />
+              <div className="px-4 py-2">
+                <h4 className="text-[#FDBB31]">
+                  {selectedProduct?.category?.name}
+                </h4>
+                <h3 className="text-lg font-semibold mb-2">
+                  {selectedProduct.name}
+                </h3>
+                <h2 className="font-bold text-[28px]">
+                  {formatPrice(selectedProduct?.price)}{' '}
+                </h2>
+                <p className="text-[14px]">
+                  <span className="font-semibold">Mahsulot ta'rifi: </span>
+                  {selectedProduct.description}
+                </p>
+                <h2 className="text-[16px]">
+                  <span className="font-semibold">SKU:</span>{' '}
+                  {selectedProduct?.sku}{' '}
+                </h2>
+                <p className="text-green-500 ">
+                  <CheckIcon /> {selectedProduct?.count} dona xarid qilish
+                  mumkin
+                </p>
+                <div className="mt-6">
+                  {count === 0 ? (
                     <button
-                      onClick={() => decrement(selectedProduct.id)}
-                      className="text-[24px] font-bold text-black"
+                      onClick={() =>
+                        addToCart(
+                          {
+                            id: selectedProduct.id,
+                            name: selectedProduct.name,
+                            price: selectedProduct.price,
+                            image: selectedProduct.image,
+                            maxCount: selectedProduct.count,
+                          },
+                          1,
+                        )
+                      }
+                      className="w-full bg-white border-black border rounded-[12px] px-4 py-[14px] text-[16px] font-medium"
                     >
-                      –
+                      Qo‘shish
                     </button>
-                    <span className="text-[16px] font-medium">{count}</span>
-                    <button
-                      onClick={() => increment(selectedProduct.id)}
-                      className="text-[24px] font-bold text-black"
-                    >
-                      +
-                    </button>
-                  </div>
-                )}
+                  ) : (
+                    <div className="w-full flex justify-between items-center rounded-[12px] mt-2 bg-white px-4 py-2 border border-black">
+                      <button
+                        onClick={() => decrement(selectedProduct.id)}
+                        className="text-[24px] font-bold text-black"
+                      >
+                        –
+                      </button>
+                      <span className="text-[16px] font-medium">{count}</span>
+                      <button
+                        onClick={() => increment(selectedProduct.id)}
+                        className="text-[24px] font-bold text-black"
+                      >
+                        +
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
+        </div>
       </Drawer>
     </div>
   )

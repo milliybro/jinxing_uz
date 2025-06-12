@@ -1,9 +1,7 @@
 import request from '@/utils/axios'
 import type { AxiosResponse } from 'axios'
 import type { AuthResponse, ISingleOrder } from '../types'
-import { IRoomItemStatistics, IRoomReview } from '@/features/calendar/types'
 import { ListResponse } from '@/types'
-import { ICategory, ICleaner } from '@/features/room-cleaning/types'
 
 export async function login(data: {
   username: string
@@ -30,11 +28,9 @@ export async function refreshToken(data: {
   return res
 }
 
-export async function getStatistics(
-  params?: any,
-): Promise<IRoomItemStatistics> {
+export async function getStatistics(params?: any): Promise<any> {
   const { branch, ...rest } = params
-  const res: IRoomItemStatistics = await request({
+  const res: any = await request({
     url: `/orders/branches/${branch}/order_items/daily/`,
     method: 'get',
     params: rest,
@@ -45,9 +41,9 @@ export async function getStatistics(
 
 export async function getOrderItems(
   params?: any,
-): Promise<ListResponse<IRoomReview[]>> {
+): Promise<ListResponse<any[]>> {
   const { branch, ...rest } = params
-  const res: ListResponse<IRoomReview[]> = await request({
+  const res: ListResponse<any[]> = await request({
     url: `/orders/branches/${branch}/order_items/`,
     method: 'get',
     params: rest,
@@ -58,9 +54,9 @@ export async function getOrderItems(
 
 export async function getOrderLangItems(
   params?: any,
-): Promise<ListResponse<IRoomReview[]>> {
+): Promise<ListResponse<any[]>> {
   const { branch, ...rest } = params
-  const res: ListResponse<IRoomReview[]> = await request({
+  const res: ListResponse<any[]> = await request({
     url: `/orders/branches/${branch}/order_items/`,
     method: 'get',
     params: rest,
@@ -91,10 +87,8 @@ export async function getOrderItemById(
   return res
 }
 
-export async function getProducts(
-  params?: any,
-): Promise<ListResponse<ICategory[]>> {
-  const res: ListResponse<ICategory[]> = await request({
+export async function getProducts(params?: any): Promise<ListResponse<any[]>> {
+  const res: ListResponse<any[]> = await request({
     url: '/products/',
     method: 'get',
     params,

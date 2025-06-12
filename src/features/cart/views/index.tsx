@@ -1,14 +1,58 @@
-import { Button, Image } from 'antd'
+import { Button, Image, message } from 'antd'
 import { useCartStore } from '@/store/cart-store'
 import { formatPrice } from '@/features/welcome/helpers/formatPrice'
+import { createOrder } from '../api'
+import { useMutation } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
 
 export default function CartPage(): React.ReactElement {
   const { cart, increment, decrement } = useCartStore()
+  const clearCart = useCartStore((state) => state.clearCart)
+  const [userId, setUserId] = useState<string | null>(null)
+
+  useEffect(() => {
+    const token = localStorage.getItem('access_token')
+
+    if (token) {
+      try {
+        const payloadBase64 = token.split('.')[1]
+        const payloadJson = atob(
+          payloadBase64.replace(/-/g, '+').replace(/_/g, '/'),
+        )
+        const payload = JSON.parse(payloadJson)
+        setUserId(payload.id)
+      } catch (error) {
+        console.error('Token decode qilishda xatolik:', error)
+      }
+    }
+  }, [])
+  
+  const { mutate, isLoading } = useMutation({
+    mutationFn: createOrder,
+    onSuccess: (res) => {
+      clearCart()
+      message.success('Buyurtma muvaffaqiyatli rasmiylashtirildi')
+    },
+    onError: () => {},
+  })
 
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.price * item.count,
     0,
   )
+
+  const payload = () => {
+    const orderPayload = {
+      order_items: cart.map((item) => ({
+        quantity: item.count,
+        price: item.price,
+        product: item.id,
+      })),
+      total_price: totalPrice,
+      user: userId,
+    }
+    mutate(orderPayload)
+  }
 
   return (
     <div className="container h-full py-6 relative pb-[80px]">
@@ -63,15 +107,19 @@ export default function CartPage(): React.ReactElement {
             ))
           )}
         </div>
-        <div className="mb-4">
-          <Button
-            block
-            size="large"
-            className="bg-[#FDBB31] border-[#FDBB31] text-white cursor-pointer"
-          >
-            Rasmiylashtirish · {formatPrice(totalPrice)}
-          </Button>
-        </div>
+        {cart?.length !== 0 ? (
+          <div className="mb-4">
+            <Button
+              onClick={payload}
+              block
+              size="large"
+              className="bg-[#FDBB31] border-[#FDBB31] text-white cursor-pointer"
+              disabled={!cart?.length}
+            >
+              Rasmiylashtirish · {formatPrice(totalPrice)}
+            </Button>
+          </div>
+        ) : null}
       </div>
     </div>
   )

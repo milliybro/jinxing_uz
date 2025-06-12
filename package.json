@@ -36,6 +36,7 @@
     "i18next-browser-languagedetector": "^8.0.0",
     "immer": "^10.0.2",
     "immutable": "^4.3.0",
+    "jwt-decode": "^4.0.0",
     "pdfjs-dist": "^3.4.120",
     "prop-types": "^15.8.1",
     "query-string": "^8.1.0",

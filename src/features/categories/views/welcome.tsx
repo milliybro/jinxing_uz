@@ -28,7 +28,7 @@ export default function Welcome(): React.ReactElement {
                 alt="Category 1"
                 className="m-0 p-0 rounded-t-xl"
               />
-              <div className="px-4 h-7">
+              <div className="px-4 h-10 flex items-center justify-center">
                 <p className="text-center font-semibold">{category?.name}</p>
               </div>
             </Link>

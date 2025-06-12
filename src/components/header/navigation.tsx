@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import CategoriesIcon from '../icons/categories-icon'
 import SearchIcon from '../icons/search'
 import CartIcon from '../icons/cart-icon'
-import { HomeOutlined } from '@ant-design/icons'
+import { HistoryOutlined, HomeOutlined } from '@ant-design/icons'
 import { useCartStore } from '@/store/cart-store'
 
 const Navigation = () => {
@@ -33,6 +33,13 @@ const Navigation = () => {
       path: '/search',
       name: 'Qidiruv',
       ariaLabel: 'Qidiruv',
+    },
+      {
+      key: 'history',
+      label: <HistoryOutlined className="text-[24px]" aria-hidden="true" />,
+      path: '/history',
+      name: 'Tarix',
+      ariaLabel: 'Tarix',
     },
     {
       key: 'cart',
@@ -68,7 +75,7 @@ const Navigation = () => {
               <Link
                 to={path}
                 aria-label={ariaLabel}
-                className={`flex flex-col items-center px-3 pt-4 pb-3 rounded-lg select-none font-medium hover:text-inherit hover:dark:bg-secondary-light/5 hover:bg-secondary-light ${
+                className={`flex flex-col items-center px-1 pt-4 pb-3 rounded-lg select-none font-medium hover:text-inherit hover:dark:bg-secondary-light/5 hover:bg-secondary-light ${
                   isActive ? 'text-[#fdbb31]' : 'dark:text-white'
                 }`}
               >

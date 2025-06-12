@@ -10,6 +10,7 @@ import ProductsRoutes from '@/features/products/routes'
 import searchRoute from '@/features/search/routes'
 import cartRoute from '@/features/cart/routes'
 import categoriesRoute from '@/features/categories/routes'
+import historyRoute from '@/features/history/routes'
 
 // Global Pages
 const Root = lazy(() => import('@/views/root'))
@@ -31,6 +32,7 @@ const routes: CustomRoute[] = [
       searchRoute,
       cartRoute,
       categoriesRoute,
+      historyRoute,
       {
         id: 'local-not-found',
         title: 'not-found',

@@ -87,13 +87,13 @@ export async function getOrderItemById(
   return res
 }
 
-export async function createOrder(payload: any): Promise<AuthResponse> {
-  const res: AuthResponse = await request({
+
+export async function getHistory(params?: any): Promise<ListResponse<any[]>> {
+  const res: ListResponse<any[]> = await request({
     url: '/orders/',
-    method: 'post',
-    data: payload, 
+    method: 'get',
+    params,
   })
 
   return res
 }
-
