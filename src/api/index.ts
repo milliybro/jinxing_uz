@@ -4,7 +4,7 @@ import type { ICountry, IDistrict, IRegion, ListResponse } from '@/types'
 import { AuthTokens } from '@/features/auth/types'
 
 export async function login(data: {
-  telegram_id: string
+  telegram_id: any
 }): Promise<AuthTokens> {
   const res: AuthTokens = await request({
     url: '/telegram-token/',
