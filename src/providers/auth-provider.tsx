@@ -55,12 +55,9 @@ export default function AuthProvider(props: Props): React.ReactElement {
     WebApp.enableClosingConfirmation()
 
     const initData = WebApp.initDataUnsafe
-    // loginMutate({ telegram_id: '1930372151' })
     if (initData && initData.user) {
       localStorage.removeItem('access_token')
       localStorage.removeItem('refresh_token')
-      loginMutate({ telegram_id: user })
-
       setUser(initData.user?.id)
       // onSubmit({
       //   name: initData.user.first_name,
@@ -72,12 +69,11 @@ export default function AuthProvider(props: Props): React.ReactElement {
   }, [])
 
   const tryAutoLogin = () => {
-    // if (!user) {
-    //   messageApi.warning('Telegram foydalanuvchisi aniqlanmadi')
-    //   return
-    // }
+    if (!user) {
+      messageApi.warning('Telegram foydalanuvchisi aniqlanmadi')
+      return
+    }
     loginMutate({ telegram_id: user })
-    // loginMutate({ telegram_id: '1930372151' })
   }
 
   useEffect(() => {
