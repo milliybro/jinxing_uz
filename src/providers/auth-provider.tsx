@@ -3,7 +3,6 @@ import { authContext } from '@/contexts/auth-context'
 import { useMutation } from '@tanstack/react-query'
 import { login, refresh } from '@/api'
 import { message } from 'antd'
-import { useTelegram } from './telegram-provider'
 import WebApp from '@twa-dev/sdk'
 
 interface Props {
@@ -58,6 +57,8 @@ export default function AuthProvider(props: Props): React.ReactElement {
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
       setUser(initData.user?.id)
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('refresh_token')
       // onSubmit({
       //   name: initData.user.first_name,
       //   username: initData.user.username,
