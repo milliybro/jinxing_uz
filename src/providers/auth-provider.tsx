@@ -45,7 +45,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
     if (initData && initData.user) {
       localStorage.removeItem('access_token')
       localStorage.removeItem('refresh_token')
-      window.location.reload()
+      // window.location.reload()
       loginMutate({ telegram_id: initData.user.id })
     }
   }, [])
