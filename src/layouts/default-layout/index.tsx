@@ -21,9 +21,11 @@ export default function DefaultLayout(props: Props): React.ReactElement {
   // const { t } = useTranslation()
 
   return (
-    <div className="h-screen">
-      {children}
-      <Header />
-    </div>
+    <>
+      <div className="min-h-screen">
+        {children}
+        <Header />
+      </div>
+    </>
   )
 }

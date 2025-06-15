@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { authContext } from '@/contexts/auth-context'
 import { useMutation } from '@tanstack/react-query'
-import { login } from '@/api'
+import { login, refresh } from '@/api'
 
 interface Props {
   children: React.ReactElement
@@ -9,22 +9,62 @@ interface Props {
 
 export default function AuthProvider(props: Props): React.ReactElement {
   const { children } = props
+  const [values, setValue] = useState('')
 
-  const { mutate, isLoading } = useMutation({
+  const [isAuth, setIsAuth] = useState<boolean>(
+    Boolean(localStorage.getItem('access_token')),
+  )
+  const value = useMemo(() => ({ isAuth, setIsAuth }), [isAuth])
+
+  const { mutate: loginMutate, isLoading: isLoggingIn } = useMutation({
     mutationFn: login,
     onSuccess: (res) => {
       localStorage.setItem('refresh_token', res?.refresh)
       localStorage.setItem('access_token', res?.access)
-      window.location.reload()
+      setIsAuth(true)
     },
     onError: (err) => {
       console.error('Login error:', err)
     },
   })
 
-  const accessToken = localStorage.getItem('access_token')
-  const [isAuth, setIsAuth] = useState<boolean>(Boolean(accessToken))
-  const value = useMemo(() => ({ isAuth, setIsAuth }), [isAuth])
+  const { mutate: refreshMutate } = useMutation({
+    mutationFn: refresh,
+    onSuccess: (res) => {
+      localStorage.setItem('access_token', res?.access)
+      setIsAuth(true)
+      window.location.reload()
+    },
+    onError: (err) => {
+      console.error('Token refresh failed:', err)
+      setIsAuth(false)
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('refresh_token')
+      tryAutoLogin()
+    },
+  })
+
+  // const tryAutoLogin = () => {
+  //   let telegramId
+
+  //   if (window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
+  //     telegramId = window.Telegram.WebApp.initDataUnsafe.user.id
+  //   } else {
+  //     telegramId = '1930372151'
+  //   }
+
+  //   loginMutate({ telegram_id: telegramId.toString() })
+  // }
+  const tryAutoLogin = () => {
+    const telegramId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+    setValue(telegramId)
+    if (!telegramId) {
+      console.error('Telegram ID topilmadi — iltimos WebApp orqali kiring')
+      return
+    }
+
+    loginMutate({ telegram_id: telegramId.toString() })
+  }
 
   // useEffect(() => {
   //   if (!accessToken && window.Telegram && window.Telegram.WebApp) {
@@ -35,23 +75,22 @@ export default function AuthProvider(props: Props): React.ReactElement {
   //     }
   //   }
   // }, [accessToken, mutate])
+
   useEffect(() => {
-    if (!accessToken) {
-      let telegramId
+    const access = localStorage.getItem('access_token')
+    const refreshToken = localStorage.getItem('refresh_token')
 
-      if (window.Telegram && window.Telegram.WebApp?.initDataUnsafe?.user?.id) {
-        telegramId = window.Telegram.WebApp.initDataUnsafe.user.id
-      } else {
-        telegramId = '1930372151'
-      }
-
-      mutate({ telegram_id: telegramId.toString() })
+    if (!access && refreshToken) {
+      refreshMutate({ refresh: refreshToken })
+    } else if (!access && !refreshToken) {
+      tryAutoLogin()
     }
-  }, [accessToken, mutate])
+  }, [])
 
   return (
     <authContext.Provider value={value}>
-      {isLoading ? <div>Loading...</div> : children}
+      <h1>{values}</h1>
+      {isLoggingIn ? <div>Loading...</div> : children}
     </authContext.Provider>
   )
 }

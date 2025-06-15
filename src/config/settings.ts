@@ -1,4 +1,4 @@
-const isDev = import.meta.env.MODE === 'development'
+// const isDev = import.meta.env.MODE === 'development'
 
 const settings = {
   baseURL: import.meta.env.VITE_BASE_URL,

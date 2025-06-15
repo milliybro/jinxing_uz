@@ -63,31 +63,33 @@ export default function Welcome(): React.ReactElement {
 
   return (
     <div className="container h-full py-6">
-      <Typography.Text className="text-[28px] font-semibold">
-        {name} ({data?.count})
-      </Typography.Text>
-      <div className="grid grid-cols-2 gap-5 mt-3">
-        {data?.results.map((product: any, index: number) => (
-          <div
-            onClick={() => onProductClick(product)}
-            key={index}
-            className="bg-zinc-300/70 text-gray-900 rounded-xl shadow-lg h-full overflow-hidden"
-          >
-            <Image
-              preview={false}
-              src={product.image}
-              height={150}
-              alt="Category 1"
-              className="m-0 p-0 rounded-t-xl"
-            />
-            <div className="px-4 h-12">
-              <p className="text-start font-semibold text-[16px]">
-                {formatPrice(product?.price)}
-              </p>
-              <p className="text-start font-medium">{product?.name}</p>
+      <div className="h-screen">
+        <Typography.Text className="text-[28px] font-semibold">
+          {name} ({data?.count})
+        </Typography.Text>
+        <div className="grid grid-cols-2 gap-5 mt-3">
+          {data?.results.map((product: any, index: number) => (
+            <div
+              onClick={() => onProductClick(product)}
+              key={index}
+              className="bg-zinc-300/70 text-gray-900 rounded-xl shadow-lg h-full overflow-hidden"
+            >
+              <Image
+                preview={false}
+                src={product.image}
+                height={150}
+                alt="Category 1"
+                className="m-0 p-0 rounded-t-xl"
+              />
+              <div className="px-4 h-12">
+                <p className="text-start font-semibold text-[16px]">
+                  {formatPrice(product?.price)}
+                </p>
+                <p className="text-start font-medium">{product?.name}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <Drawer
         placement="bottom"

@@ -1,16 +1,37 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useMatch } from 'react-router-dom'
 
 import CategoriesIcon from '../icons/categories-icon'
 import SearchIcon from '../icons/search'
 import CartIcon from '../icons/cart-icon'
 import { HistoryOutlined, HomeOutlined } from '@ant-design/icons'
 import { useCartStore } from '@/store/cart-store'
+import { useEffect, useState } from 'react'
+import UserCircleIcon from '../icons/user-circle'
+import PieChartIcon from '../icons/statistics-icon'
+import FileIcon from '../icons/file'
 
 const Navigation = () => {
   const { pathname } = useLocation()
   const cart = useCartStore((state) => state.cart)
 
-  // const cartCount = cart.reduce((sum, item) => sum + item.count, 0)
+  const [userId, setUserId] = useState<number | null>(null)
+
+  useEffect(() => {
+    const token = localStorage.getItem('access_token')
+
+    if (token) {
+      try {
+        const payloadBase64 = token.split('.')[1]
+        const payloadJson = atob(
+          payloadBase64.replace(/-/g, '+').replace(/_/g, '/'),
+        )
+        const payload = JSON.parse(payloadJson)
+        setUserId(payload.id)
+      } catch (error) {
+        console.error('Token decode qilishda xatolik:', error)
+      }
+    }
+  }, [])
 
   const routes = [
     {
@@ -34,7 +55,7 @@ const Navigation = () => {
       name: 'Qidiruv',
       ariaLabel: 'Qidiruv',
     },
-      {
+    {
       key: 'history',
       label: <HistoryOutlined className="text-[24px]" aria-hidden="true" />,
       path: '/history',
@@ -62,20 +83,59 @@ const Navigation = () => {
     },
   ]
 
+  const adminRoutes = [
+    {
+      key: 'statistics',
+      label: <PieChartIcon className="text-[24px]" aria-hidden="true" />,
+      path: '/admin',
+      name: 'Statistika',
+      ariaLabel: 'Statistika',
+    },
+    {
+      key: 'orders',
+      label: <FileIcon className="text-[24px]" aria-hidden="true" />,
+      path: '/orders',
+      name: 'Buyurtma',
+      ariaLabel: 'Buyurtmalar',
+    },
+    {
+      key: 'users',
+      label: <UserCircleIcon className="text-[24px]" aria-hidden="true" />,
+      path: '/users',
+      name: 'Foydalanuvchi',
+      ariaLabel: 'Foydalanuvchilar',
+    },
+    {
+      key: 'categories',
+      label: <CategoriesIcon className="text-[24px]" aria-hidden="true" />,
+      path: '/resourses',
+      name: 'Mahsulotlar',
+      ariaLabel: 'Kategoriyalar',
+    },
+  ]
+
+  if (userId === null) {
+    return null
+  }
+
+  const activeRoute = userId === 2 ? adminRoutes : routes
+
   return (
     <nav
       className="flex container items-center justify-between w-full"
       aria-label="Sayt navigatsiyasi"
     >
       <ul className="flex items-center gap-4 justify-between w-full">
-        {routes.map(({ key, path, label, name, ariaLabel }) => {
+        {activeRoute.map(({ key, path, label, name, ariaLabel }) => {
           const isActive = pathname === path
+          // const match = useMatch(path)
+          // const isActive = Boolean(match)
           return (
             <li key={key}>
               <Link
                 to={path}
                 aria-label={ariaLabel}
-                className={`flex flex-col items-center px-1 pt-4 pb-3 rounded-lg select-none font-medium hover:text-inherit hover:dark:bg-secondary-light/5 hover:bg-secondary-light ${
+                className={`w-[32px] h-[32px] flex flex-col items-center px-1 pt-4 pb-3 rounded-lg select-none font-medium hover:text-inherit ${
                   isActive ? 'text-[#fdbb31]' : 'dark:text-white'
                 }`}
               >

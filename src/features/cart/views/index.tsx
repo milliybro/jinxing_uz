@@ -26,10 +26,10 @@ export default function CartPage(): React.ReactElement {
       }
     }
   }, [])
-  
-  const { mutate, isLoading } = useMutation({
+
+  const { mutate } = useMutation({
     mutationFn: createOrder,
-    onSuccess: (res) => {
+    onSuccess: () => {
       clearCart()
       message.success('Buyurtma muvaffaqiyatli rasmiylashtirildi')
     },
@@ -46,7 +46,7 @@ export default function CartPage(): React.ReactElement {
       order_items: cart.map((item) => ({
         quantity: item.count,
         price: item.price,
-        product: item.id,
+        product_id: item.id,
       })),
       total_price: totalPrice,
       user: userId,

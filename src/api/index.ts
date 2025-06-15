@@ -15,6 +15,14 @@ export async function login(data: {
   return res
 }
 
+export async function refresh(data: { refresh: string }): Promise<AuthTokens> {
+  return await request({
+    url: '/token/refresh/',
+    method: 'post',
+    data,
+  })
+}
+
 export async function getCountries(
   params?: any,
 ): Promise<ListResponse<ICountry[]>> {

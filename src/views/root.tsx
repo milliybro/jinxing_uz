@@ -1,10 +1,8 @@
 import { Suspense, useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
-
+import { Navigate, Outlet } from 'react-router-dom'
 import Spinner from '@/components/spinner'
-// import { useAuthContext } from '@/contexts'
-import DefaultLayout from '@/layouts/default-layout'
 
+import DefaultLayout from '@/layouts/default-layout'
 import type { CustomRoute } from '@/types'
 
 interface Props {
@@ -12,27 +10,45 @@ interface Props {
 }
 
 const SpinnerWrapper = () => {
-  const [showSpinner, setShowSpinner] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSpinner(false)
-    }, 1000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  return showSpinner ? <Spinner /> : null
+  return (
+    <div className="flex justify-center items-center min-h-[200px]">
+      <Spinner />
+    </div>
+  )
 }
+
 export default function Root(props: Props): React.ReactElement {
   const { getRoutes } = props
+  const [loading, setLoading] = useState(true)
+  const [userId, setUserId] = useState<number | null>(null)
 
-  // const { isAuth } = useAuthContext()
+  useEffect(() => {
+    const token = localStorage.getItem('access_token')
+
+    if (token) {
+      try {
+        const payloadBase64 = token.split('.')[1]
+        const payloadJson = atob(
+          payloadBase64.replace(/-/g, '+').replace(/_/g, '/'),
+        )
+        const payload = JSON.parse(payloadJson)
+        setUserId(payload.id)
+      } catch (error) {
+        console.error('Token decode qilishda xatolik:', error)
+      }
+    }
+
+    setLoading(false)
+  }, [])
 
   const routes = getRoutes()
 
-  // if (!isAuth) {
-  //   return <Navigate to="/welcome" replace />
+  if (loading) {
+    return <SpinnerWrapper />
+  }
+
+  // if (userId === 2) {
+  //   return <Navigate to="/admin" replace />
   // }
 
   return (

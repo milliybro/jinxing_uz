@@ -4,12 +4,9 @@ import { getProducts } from '@/features/products/api'
 import { formatPrice } from '@/features/welcome/helpers/formatPrice'
 import { useCartStore } from '@/store/cart-store'
 import { useQuery } from '@tanstack/react-query'
-import { Button, Drawer, Form, Image, Input } from 'antd'
-import { SearchProps } from 'antd/es/input'
-import queryString from 'query-string'
+import { Drawer, Form, Image, Input } from 'antd'
 import { debounce } from 'radash'
 import { useMemo, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 
 const { Search } = Input
 
@@ -29,7 +26,7 @@ export default function SearchPage(): React.ReactElement {
 
   const count = itemInCart?.count || 0
 
-  const { data, refetch, isFetching } = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: ['products', search],
     queryFn: () => getProducts({ search }),
     // enabled: false,
@@ -58,8 +55,8 @@ export default function SearchPage(): React.ReactElement {
   }
 
   return (
-    <div className="container h-full py-6">
-      <div className="h-screen">
+    <div className="container h-full py-6 pb-[80px]">
+      <div className="">
         <h1 className="text-2xl font-bold pt-4">Qidirish</h1>
         <p className="text-gray-700">So‘rovingizni kiriting</p>
         <Form className="mt-2">
@@ -72,7 +69,6 @@ export default function SearchPage(): React.ReactElement {
           </Form.Item>
         </Form>
 
-        {/* Mahsulotlar ro'yxati */}
         <div className="grid grid-cols-2 gap-4 mt-4">
           {data?.results.map((product: any, index: number) => (
             <div
@@ -98,7 +94,6 @@ export default function SearchPage(): React.ReactElement {
         </div>
       </div>
 
-      {/* Drawer */}
       <Drawer
         placement="bottom"
         closable={false}

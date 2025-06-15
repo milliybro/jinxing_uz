@@ -52,7 +52,7 @@ export default function Welcome(): React.ReactElement {
   }
 
   return (
-    <div className="container h-full py-6 pb-[60px]">
+    <div className="container h-full py-6 pb-[80px]">
       <div className="flex items-center gap-2">
         <img src={logo} className="w-[28px] h-[28px]" />
         <Typography.Text className="text-[28px] font-semibold">
@@ -93,7 +93,7 @@ export default function Welcome(): React.ReactElement {
         </Carousel>
       </div>
       <div className="grid grid-cols-4 gap-2 mt-3 mb-4 ">
-        {categories?.results.map((category: any, index) => {
+        {categories?.results.slice(0, 4).map((category: any, index) => {
           return (
             <Link
               to={`/products?category=${category?.id}&name=${category?.name}`}
