@@ -59,6 +59,8 @@ export default function AuthProvider(props: Props): React.ReactElement {
     if (initData && initData.user) {
       localStorage.removeItem('access_token')
       localStorage.removeItem('refresh_token')
+      loginMutate({ telegram_id: user })
+
       setUser(initData.user?.id)
       // onSubmit({
       //   name: initData.user.first_name,
