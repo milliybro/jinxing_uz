@@ -1,5 +1,6 @@
 import axios from 'axios'
 import i18next from 'i18next'
+import { notification } from 'antd'
 import settings from '@/config/settings'
 import { refreshToken } from '@/features/auth'
 
@@ -21,7 +22,6 @@ request.interceptors.request.use((config) => {
   const locale = i18next.language
 
   if (token !== null) {
-    // eslint-disable-next-line no-param-reassign
     config.headers.Authorization = `Bearer ${token}`
   }
 
@@ -33,11 +33,8 @@ request.interceptors.request.use((config) => {
       : locale || 'ru'
 
   if (cookie !== null) {
-    // eslint-disable-next-line no-param-reassign
     config.headers['X-CSRFToken'] = cookie
   }
-
-  // config.validateStatus = (status) => status < 500;
 
   return config
 }, errorHandler)
@@ -55,7 +52,7 @@ export async function errorHandler(error: AxiosError): Promise<void> {
       if (rToken !== null) {
         try {
           const res = await refreshToken({ refresh: rToken })
-          const { refresh, access } = res
+          const { refresh, access } = res.data.auth_tokens
           localStorage.setItem('refresh_token', refresh)
           localStorage.setItem('access_token', access)
         } catch (err) {
@@ -68,35 +65,38 @@ export async function errorHandler(error: AxiosError): Promise<void> {
       }
     }
 
-    // if (errorStatus === 500) {
-    //   notification.error({
-    //     message: 'Server error | 500',
-    //     description: 'Please try again later',
-    //   })
-    // } else if (Array.isArray(errorData)) {
-    //   errorData.forEach((val: IErrorMessage) => {
-    //     notification.error({
-    //       message: val?.error_type,
-    //       description: val?.detail,
-    //     })
-    //   })
-    // } else {
-    //   notification.error({
-    //     message: 'Unexpected error',
-    //     description: 'An error occurred. Please try again.',
-    //   })
-    // }
+    if (errorStatus === 500) {
+      notification.error({
+        message: 'Server error | 500',
+        description: 'Please try again later',
+      })
+    } else if (Array.isArray(errorData)) {
+      errorData.forEach((val: IErrorMessage) => {
+        notification.error({
+          message: val?.error_type,
+          description: val?.detail,
+        })
+      })
+    } else {
+      notification.error({
+        message: 'Unexpected error',
+        description: 'An error occurred. Please try again.',
+      })
+    }
 
     await Promise.reject(error.response)
   }
   if (error.request !== null) {
+    // no response received from server
     await Promise.reject(error.request)
   }
 
+  // something happened in setting up the request
   console.error(error.message)
 
   console.log('Error config object:', error.config)
 
+  // Using toJSON you get an object with more information about the HTTP error
   console.log('\nError object as json:', error.toJSON())
 
   await Promise.reject(error)

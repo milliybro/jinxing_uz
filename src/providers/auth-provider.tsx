@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect } from 'react'
 import { authContext } from '@/contexts/auth-context'
 import { useMutation } from '@tanstack/react-query'
-import { login, refresh } from '@/api'
-import { message } from 'antd'
+import { login } from '@/api'
+import { Button, message } from 'antd'
 import WebApp from '@twa-dev/sdk'
 
 interface Props {
@@ -23,6 +23,9 @@ export default function AuthProvider(props: Props): React.ReactElement {
     onSuccess: (res) => {
       localStorage.setItem('refresh_token', res?.refresh)
       localStorage.setItem('access_token', res?.access)
+      // window.location.reload()
+      messageApi.success('Login')
+
     },
     onError: (err) => {
       console.error('Login error:', err)
@@ -30,6 +33,9 @@ export default function AuthProvider(props: Props): React.ReactElement {
     },
   })
 
+  const submit = () => {
+    loginMutate({ telegram_id: '1930372151' })
+  }
   useEffect(() => {
     WebApp.ready()
     WebApp.expand()
@@ -37,15 +43,16 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
-      // localStorage.removeItem('access_token')
-      // localStorage.removeItem('refresh_token')
-      loginMutate({ telegram_id: '1930372151' })
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('refresh_token')
+      window.location.reload()
+      loginMutate({ telegram_id: initData.user.id })
     }
   }, [])
 
   return (
     <authContext.Provider value={value}>
-      val:{localStorage.getItem('access_token')}
+      <Button onClick={submit}></Button>
       {contextHolder}
       {isLoggingIn ? <div>Loading...</div> : children}
     </authContext.Provider>
