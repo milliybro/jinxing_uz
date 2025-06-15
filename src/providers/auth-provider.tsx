@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query'
 import { login, refresh } from '@/api'
 import { message } from 'antd'
 import { useTelegram } from './telegram-provider'
+import WebApp from '@twa-dev/sdk'
 
 interface Props {
   children: React.ReactElement
@@ -15,9 +16,10 @@ export default function AuthProvider(props: Props): React.ReactElement {
   const [isAuth, setIsAuth] = useState<boolean>(
     Boolean(localStorage.getItem('access_token')),
   )
+  const [user, setUser] = useState('')
 
   const value = useMemo(() => ({ isAuth, setIsAuth }), [isAuth])
-  const { user } = useTelegram()
+  // const { user } = useTelegram()
 
   const { mutate: loginMutate, isLoading: isLoggingIn } = useMutation({
     mutationFn: login,
@@ -47,6 +49,23 @@ export default function AuthProvider(props: Props): React.ReactElement {
       tryAutoLogin()
     },
   })
+
+  useEffect(() => {
+    WebApp.ready()
+    WebApp.expand()
+    WebApp.enableClosingConfirmation()
+
+    const initData = WebApp.initDataUnsafe
+    if (initData && initData.user) {
+      setUser(initData.user?.id)
+      // onSubmit({
+      //   name: initData.user.first_name,
+      //   username: initData.user.username,
+      //   language_code: initData.user.language_code,
+      //   photo_url: initData.user.photo_url,
+      // })
+    }
+  }, [])
 
   const tryAutoLogin = () => {
     if (!user?.id) {
