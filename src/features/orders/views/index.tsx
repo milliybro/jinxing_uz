@@ -128,6 +128,14 @@ export default function OrdersPage(): React.ReactElement {
                         <Button onClick={handleConfirm}>Qabul qilish</Button>
                       </div>
                     )}
+                    <div className="flex justify-between items-start px-2">
+                      <Typography.Text className="text-[14px] font-semibold">
+                        Mijoz haqida:
+                      </Typography.Text>
+                      <Typography.Text className="text-[14px] font-[500] text-end w-[150px]">
+                        MMMM +998999999999
+                      </Typography.Text>
+                    </div>
                   </div>
 
                   <Collapse

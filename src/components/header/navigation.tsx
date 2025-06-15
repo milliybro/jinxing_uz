@@ -1,4 +1,4 @@
-import { Link, useLocation, useMatch } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import CategoriesIcon from '../icons/categories-icon'
 import SearchIcon from '../icons/search'
@@ -15,6 +15,7 @@ const Navigation = () => {
   const cart = useCartStore((state) => state.cart)
 
   const [userId, setUserId] = useState<number | null>(null)
+  const [isSuperUser, setIsSuperUser] = useState<number | null>(null)
 
   useEffect(() => {
     const token = localStorage.getItem('access_token')
@@ -27,6 +28,7 @@ const Navigation = () => {
         )
         const payload = JSON.parse(payloadJson)
         setUserId(payload.id)
+        setIsSuperUser(payload?.is_superuser)
       } catch (error) {
         console.error('Token decode qilishda xatolik:', error)
       }
@@ -118,7 +120,7 @@ const Navigation = () => {
     return null
   }
 
-  const activeRoute = userId === 2 ? adminRoutes : routes
+  const activeRoute = isSuperUser ? adminRoutes : routes
 
   return (
     <nav

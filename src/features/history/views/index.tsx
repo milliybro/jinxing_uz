@@ -24,11 +24,11 @@ export default function CartPage(): React.ReactElement {
       }
     }
   }, [])
-
   const { data } = useQuery({
     queryKey: ['history', userId],
     queryFn: () => getHistory({ user: userId }),
     enabled: !!userId,
+    refetchOnMount: 'always',
   })
 
   const onChange = (key: string | string[]) => {

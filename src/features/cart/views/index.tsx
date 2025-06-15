@@ -49,7 +49,7 @@ export default function CartPage(): React.ReactElement {
         product_id: item.id,
       })),
       total_price: totalPrice,
-      user: userId,
+      user_id: userId,
     }
     mutate(orderPayload)
   }
