@@ -69,24 +69,24 @@ export async function errorHandler(error: AxiosError): Promise<void> {
       }
     }
 
-    if (errorStatus === 500) {
-      notification.error({
-        message: 'Server error | 500',
-        description: 'Please try again later',
-      })
-    } else if (Array.isArray(errorData)) {
-      errorData.forEach((val: IErrorMessage) => {
-        notification.error({
-          message: val?.error_type,
-          description: val?.detail,
-        })
-      })
-    } else {
-      notification.error({
-        message: 'Unexpected error',
-        description: 'An error occurred. Please try again.',
-      })
-    }
+    // if (errorStatus === 500) {
+    //   notification.error({
+    //     message: 'Server error | 500',
+    //     description: 'Please try again later',
+    //   })
+    // } else if (Array.isArray(errorData)) {
+    //   errorData.forEach((val: IErrorMessage) => {
+    //     notification.error({
+    //       message: val?.error_type,
+    //       description: val?.detail,
+    //     })
+    //   })
+    // } else {
+    //   notification.error({
+    //     message: 'Unexpected error',
+    //     description: 'An error occurred. Please try again.',
+    //   })
+    // }
 
     await Promise.reject(error.response)
   }

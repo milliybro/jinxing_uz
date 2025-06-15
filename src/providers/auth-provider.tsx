@@ -56,9 +56,9 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
-      setUser(initData.user?.id)
       localStorage.removeItem('access_token')
       localStorage.removeItem('refresh_token')
+      setUser(initData.user?.id)
       // onSubmit({
       //   name: initData.user.first_name,
       //   username: initData.user.username,

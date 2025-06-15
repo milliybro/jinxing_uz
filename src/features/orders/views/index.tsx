@@ -26,9 +26,8 @@ export default function OrdersPage(): React.ReactElement {
   }, [])
 
   const { data, refetch } = useQuery({
-    queryKey: ['history', userId],
-    queryFn: () => getHistory({ user: userId }),
-    enabled: !!userId,
+    queryKey: ['history'],
+    queryFn: () => getHistory(),
   })
 
   const onChange = (key: string | string[]) => {
