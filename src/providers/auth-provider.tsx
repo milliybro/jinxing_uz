@@ -68,11 +68,11 @@ export default function AuthProvider(props: Props): React.ReactElement {
   }, [])
 
   const tryAutoLogin = () => {
-    if (!user?.id) {
+    if (!user) {
       messageApi.warning('Telegram foydalanuvchisi aniqlanmadi')
       return
     }
-    loginMutate({ telegram_id: user.id.toString() })
+    loginMutate({ telegram_id: user })
   }
 
   useEffect(() => {
