@@ -88,6 +88,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
   return (
     <authContext.Provider value={value}>
+      Val:{user}
       {contextHolder}
       {isLoggingIn ? <div>Loading...</div> : children}
     </authContext.Provider>
