@@ -46,6 +46,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
   return (
     <authContext.Provider value={value}>
+      val:{localStorage.getItem('access_token')}
       {contextHolder}
       {isLoggingIn ? <div>Loading...</div> : children}
     </authContext.Provider>

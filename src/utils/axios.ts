@@ -1,6 +1,5 @@
 import axios from 'axios'
 import i18next from 'i18next'
-import { notification } from 'antd'
 import settings from '@/config/settings'
 import { refreshToken } from '@/features/auth'
 
@@ -56,7 +55,7 @@ export async function errorHandler(error: AxiosError): Promise<void> {
       if (rToken !== null) {
         try {
           const res = await refreshToken({ refresh: rToken })
-          const { refresh, access } = res.data.auth_tokens
+          const { refresh, access } = res
           localStorage.setItem('refresh_token', refresh)
           localStorage.setItem('access_token', access)
         } catch (err) {
@@ -91,16 +90,13 @@ export async function errorHandler(error: AxiosError): Promise<void> {
     await Promise.reject(error.response)
   }
   if (error.request !== null) {
-    // no response received from server
     await Promise.reject(error.request)
   }
 
-  // something happened in setting up the request
   console.error(error.message)
 
   console.log('Error config object:', error.config)
 
-  // Using toJSON you get an object with more information about the HTTP error
   console.log('\nError object as json:', error.toJSON())
 
   await Promise.reject(error)
