@@ -11,6 +11,7 @@ import { darkTheme, lightTheme } from './providers/theme-provider'
 import { useTranslation } from 'react-i18next'
 import uz from 'antd/locale/uz_UZ'
 import ru from 'antd/locale/ru_RU'
+import { TelegramProvider } from './providers/telegram-provider'
 
 export default function App(): React.ReactElement {
   const [cookies] = useCookies(['darkTheme'])
@@ -22,14 +23,16 @@ export default function App(): React.ReactElement {
   return (
     <LanguageProvider>
       <QueryProvider>
-        <AuthProvider>
-          <ConfigProvider
-            theme={cookies.darkTheme ? darkTheme : lightTheme}
-            locale={lang === 'ru' ? ru : uz}
-          >
-            <Routes />
-          </ConfigProvider>
-        </AuthProvider>
+        <TelegramProvider>
+          <AuthProvider>
+            <ConfigProvider
+              theme={cookies.darkTheme ? darkTheme : lightTheme}
+              locale={lang === 'ru' ? ru : uz}
+            >
+              <Routes />
+            </ConfigProvider>
+          </AuthProvider>
+        </TelegramProvider>
       </QueryProvider>
     </LanguageProvider>
   )
