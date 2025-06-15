@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react'
 import { authContext } from '@/contexts/auth-context'
 import { useMutation } from '@tanstack/react-query'
 import { login, refresh } from '@/api'
+import { message } from 'antd'
 
 interface Props {
   children: React.ReactElement
@@ -9,6 +10,7 @@ interface Props {
 
 export default function AuthProvider(props: Props): React.ReactElement {
   const { children } = props
+  const [messageApi, contextHolder] = message.useMessage()
   const [values, setValue] = useState('')
 
   const [isAuth, setIsAuth] = useState<boolean>(
@@ -56,15 +58,31 @@ export default function AuthProvider(props: Props): React.ReactElement {
   //   loginMutate({ telegram_id: telegramId.toString() })
   // }
   const tryAutoLogin = () => {
-    const telegramId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
-    setValue(telegramId)
+    const user = window.Telegram?.WebApp?.initDataUnsafe?.user
+    console.log('Telegram foydalanuvchi:', user)
+
+    const telegramId = user?.id
+
     if (!telegramId) {
-      console.error('Telegram ID topilmadi — iltimos WebApp orqali kiring')
+      messageApi.open({
+        type: 'warning',
+        content: 'Telegram SDK hali yuklanmagan yoki foydalanuvchi mavjud emas',
+      })
       return
     }
 
+    setValue(telegramId)
     loginMutate({ telegram_id: telegramId.toString() })
   }
+
+  // useEffect(() => {
+  //   if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
+  //     messageApi.open({
+  //       type: 'warning',
+  //       content: 'Telegram SDK hali yuklanmagan yoki foydalanuvchi mavjud emas',
+  //     })
+  //   }
+  // }, [])
 
   // useEffect(() => {
   //   if (!accessToken && window.Telegram && window.Telegram.WebApp) {
@@ -89,7 +107,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
   return (
     <authContext.Provider value={value}>
-      <h1>{values}</h1>
+      {contextHolder}
       {isLoggingIn ? <div>Loading...</div> : children}
     </authContext.Provider>
   )
