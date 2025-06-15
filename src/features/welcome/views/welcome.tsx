@@ -5,11 +5,12 @@ import { getProducts } from '@/features/products/api'
 import { getCategories } from '../api'
 import { formatPrice } from '../helpers/formatPrice'
 import CartIcon from '@/components/icons/cart-icon'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useCartStore } from '@/store/cart-store'
 import CloseIcon from '@/components/icons/close'
 import CheckIcon from '@/components/icons/check'
 import logo from '../../../assets/jinxing.jpg'
+import WebApp from '@twa-dev/sdk'
 
 export default function Welcome(): React.ReactElement {
   const [open, setOpen] = useState(false)
@@ -51,13 +52,42 @@ export default function Welcome(): React.ReactElement {
     setOpen(true)
   }
 
+  const [photo, setPhoto] = useState()
+  useEffect(() => {
+    WebApp.ready()
+
+    const initData = WebApp.initDataUnsafe
+    if (initData && initData.user) {
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('refresh_token')
+      setPhoto(initData.user?.photo_url)
+      // onSubmit({
+      //   name: initData.user.first_name,
+      //   username: initData.user.username,
+      //   language_code: initData.user.language_code,
+      //   photo_url: initData.user.photo_url,
+      // })
+    }
+  }, [])
+
   return (
     <div className="container h-full py-6 pb-[80px]">
-      <div className="flex items-center gap-2">
-        <img src={logo} className="w-[28px] h-[28px]" />
-        <Typography.Text className="text-[28px] font-semibold">
-          Jinxing Uz
-        </Typography.Text>
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <img src={logo} className="w-[28px] h-[28px]" />
+          <Typography.Text className="text-[28px] font-semibold">
+            Jinxing Uz
+          </Typography.Text>
+        </div>
+        <div>
+          <Image
+            preview={false}
+            src={photo}
+            className="rounded-full object-cover"
+            height={40}
+            width={40}
+          />
+        </div>
       </div>
       <div className="my-3">
         <Carousel autoplay dots={false}>
