@@ -71,7 +71,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
       return
     }
 
-    setValue(telegramId)
+    setValue(JSON.stringify(user, null, 2))
     loginMutate({ telegram_id: telegramId.toString() })
   }
 
@@ -108,6 +108,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
   return (
     <authContext.Provider value={value}>
       {contextHolder}
+      <pre>Val: {values}</pre>
       {isLoggingIn ? <div>Loading...</div> : children}
     </authContext.Provider>
   )
