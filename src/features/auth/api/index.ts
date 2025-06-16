@@ -18,7 +18,7 @@ export async function login(data: {
 
 export async function refreshToken(data: { refresh: string }): Promise<any> {
   const res = await request({
-    url: 'token/refresh',
+    url: '/token/refresh/',
     method: 'post',
     data,
   })

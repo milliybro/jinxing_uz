@@ -22,7 +22,7 @@ request.interceptors.request.use((config) => {
   const locale = i18next.language
 
   if (token !== null) {
-    config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMTM0NDM5LCJpYXQiOjE3NTAwNDgwMzksImp0aSI6IjRjMjRmYWY5YmMyMzRiMmNhOWIwZDJhNjVkMzg0ZWY3IiwidXNlcl90ZWxlZ3JhbV9pZCI6IjE5MzAzNzIxNTEiLCJpZCI6MiwidGVsZWdyYW1faWQiOiIxOTMwMzcyMTUxIiwiaXNfc3VwZXJ1c2VyIjpmYWxzZX0.pOjwy3eSNzPq1zGVLt0DoyO-_G-6BDL1QrAeooPdJvw`
+    config.headers.Authorization = `Bearer ${token}`
   }
 
   config.headers['Accept-Language'] =
@@ -52,11 +52,10 @@ export async function errorHandler(error: AxiosError): Promise<void> {
       if (rToken !== null) {
         try {
           const res = await refreshToken({ refresh: rToken })
-          const { refresh, access } = res.data.auth_tokens
+          const { refresh, access } = res.data
           localStorage.setItem('refresh_token', refresh)
           localStorage.setItem('access_token', access)
         } catch (err) {
-          localStorage.setItem('refresh_token_error', JSON.stringify(err))
           localStorage.removeItem('refresh_token')
           localStorage.removeItem('access_token')
         } finally {
@@ -79,7 +78,7 @@ export async function errorHandler(error: AxiosError): Promise<void> {
       })
     } else {
       notification.error({
-        message: 'Unexpected error',
+        message: 'Xatolik yuz berdi',
         description: 'An error occurred. Please try again.',
       })
     }
