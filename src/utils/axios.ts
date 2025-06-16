@@ -64,6 +64,12 @@ export async function errorHandler(error: AxiosError): Promise<void> {
       //   }
       // }
     }
+    if (errorStatus === 401) {
+      notification.error({
+        message: '401',
+        description: '',
+      })
+    }
 
     if (errorStatus === 500) {
       notification.error({
