@@ -58,8 +58,8 @@ export default function Welcome(): React.ReactElement {
 
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
-      localStorage.removeItem('access_token')
-      localStorage.removeItem('refresh_token')
+      // localStorage.removeItem('access_token')
+      // localStorage.removeItem('refresh_token')
       setPhoto(initData.user?.photo_url)
       // onSubmit({
       //   name: initData.user.first_name,

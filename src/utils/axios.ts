@@ -45,57 +45,57 @@ export async function errorHandler(error: AxiosError): Promise<void> {
   const errorStatus = error.response?.status
   const errorData = error?.response?.data as IErrorMessage[]
 
-  if (error.response !== null) {
-    if (errorStatus === 403) {
-      const rToken = localStorage.getItem('refresh_token')
+  // if (error.response !== null) {
+  //   if (errorStatus === 403) {
+  //     const rToken = localStorage.getItem('refresh_token')
 
-      // if (rToken !== null) {
-      //   try {
-      //     const res = await refreshToken({ refresh: rToken })
-      //     const { refresh, access } = res.data
-      //     localStorage.setItem('refresh_token', refresh)
-      //     localStorage.setItem('access_token', access)
-      //   } catch (err) {
-      //     localStorage.removeItem('refresh_token')
-      //     localStorage.removeItem('access_token')
+  //     // if (rToken !== null) {
+  //     //   try {
+  //     //     const res = await refreshToken({ refresh: rToken })
+  //     //     const { refresh, access } = res.data
+  //     //     localStorage.setItem('refresh_token', refresh)
+  //     //     localStorage.setItem('access_token', access)
+  //     //   } catch (err) {
+  //     //     localStorage.removeItem('refresh_token')
+  //     //     localStorage.removeItem('access_token')
 
-      //   } finally {
-      //     window.location.reload()
-      //   }
-      // }
-    }
-    if (errorStatus === 401) {
-      notification.error({
-        message: '401',
-        description: '',
-      })
-    }
+  //     //   } finally {
+  //     //     window.location.reload()
+  //     //   }
+  //     // }
+  //   }
+  //   if (errorStatus === 401) {
+  //     notification.error({
+  //       message: '401',
+  //       description: '',
+  //     })
+  //   }
 
-    if (errorStatus === 500) {
-      notification.error({
-        message: 'Server error | 500',
-        description: 'Please try again later',
-      })
-    } else if (Array.isArray(errorData)) {
-      errorData.forEach((val: IErrorMessage) => {
-        notification.error({
-          message: val?.error_type,
-          description: val?.detail,
-        })
-      })
-    } else {
-      notification.error({
-        message: 'Xatolik yuz berdi',
-        description: 'An error occurred. Please try again.',
-      })
-    }
+  //   if (errorStatus === 500) {
+  //     notification.error({
+  //       message: 'Server error | 500',
+  //       description: 'Please try again later',
+  //     })
+  //   } else if (Array.isArray(errorData)) {
+  //     errorData.forEach((val: IErrorMessage) => {
+  //       notification.error({
+  //         message: val?.error_type,
+  //         description: val?.detail,
+  //       })
+  //     })
+  //   } else {
+  //     notification.error({
+  //       message: 'Xatolik yuz berdi',
+  //       description: 'An error occurred. Please try again.',
+  //     })
+  //   }
 
-    await Promise.reject(error.response)
-  }
-  if (error.request !== null) {
-    // no response received from server
-    await Promise.reject(error.request)
-  }
+  //   await Promise.reject(error.response)
+  // }
+  // if (error.request !== null) {
+  //   // no response received from server
+  //   await Promise.reject(error.request)
+  // }
 
   // something happened in setting up the request
   console.error(error.message)
