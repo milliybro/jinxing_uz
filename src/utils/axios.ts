@@ -49,19 +49,20 @@ export async function errorHandler(error: AxiosError): Promise<void> {
     if (errorStatus === 403) {
       const rToken = localStorage.getItem('refresh_token')
 
-      if (rToken !== null) {
-        try {
-          const res = await refreshToken({ refresh: rToken })
-          const { refresh, access } = res.data
-          localStorage.setItem('refresh_token', refresh)
-          localStorage.setItem('access_token', access)
-        } catch (err) {
-          localStorage.removeItem('refresh_token')
-          localStorage.removeItem('access_token')
-        } finally {
-          window.location.reload()
-        }
-      }
+      // if (rToken !== null) {
+      //   try {
+      //     const res = await refreshToken({ refresh: rToken })
+      //     const { refresh, access } = res.data
+      //     localStorage.setItem('refresh_token', refresh)
+      //     localStorage.setItem('access_token', access)
+      //   } catch (err) {
+      //     localStorage.removeItem('refresh_token')
+      //     localStorage.removeItem('access_token')
+
+      //   } finally {
+      //     window.location.reload()
+      //   }
+      // }
     }
 
     if (errorStatus === 500) {

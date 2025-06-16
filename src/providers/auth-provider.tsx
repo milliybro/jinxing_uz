@@ -23,7 +23,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
     onSuccess: (res) => {
       localStorage.setItem('refresh_token', res?.refresh)
       localStorage.setItem('access_token', res?.access)
-      messageApi.success('Login')
+      // messageApi.success('Login')
       // window.location.reload()
     },
     onError: (err) => {
@@ -42,9 +42,10 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
+      messageApi.success('token ochirildi')
       localStorage.removeItem('access_token')
       localStorage.removeItem('refresh_token')
-      // loginMutate({ telegram_id: initData.user.id })
+      loginMutate({ telegram_id: initData.user.id })
     }
   }, [])
 
