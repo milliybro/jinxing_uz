@@ -22,7 +22,7 @@ request.interceptors.request.use((config) => {
   const locale = i18next.language
 
   if (token !== null) {
-    config.headers.Authorization = `Bearer ${token}`
+    config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMTM0NDM5LCJpYXQiOjE3NTAwNDgwMzksImp0aSI6IjRjMjRmYWY5YmMyMzRiMmNhOWIwZDJhNjVkMzg0ZWY3IiwidXNlcl90ZWxlZ3JhbV9pZCI6IjE5MzAzNzIxNTEiLCJpZCI6MiwidGVsZWdyYW1faWQiOiIxOTMwMzcyMTUxIiwiaXNfc3VwZXJ1c2VyIjpmYWxzZX0.pOjwy3eSNzPq1zGVLt0DoyO-_G-6BDL1QrAeooPdJvw`
   }
 
   config.headers['Accept-Language'] =
