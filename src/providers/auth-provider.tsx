@@ -43,8 +43,8 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
-      localStorage.removeItem('access_token')
-      localStorage.removeItem('refresh_token')
+      // localStorage.removeItem('access_token')
+      // localStorage.removeItem('refresh_token')
       // window.location.reload()
       loginMutate({ telegram_id: initData.user.id })
     }
