@@ -33,7 +33,7 @@ export default function OrdersPage(): React.ReactElement {
   const onChange = (key: string | string[]) => {
     console.log(key)
   }
-  const { mutate: updateMutate } = useMutation({
+  const { mutate: updateMutate, isLoading } = useMutation({
     mutationFn: ({ id, data }: any) => updateOrders(id, data),
     onSuccess: (data, variables) => {
       refetch()
@@ -117,25 +117,29 @@ export default function OrdersPage(): React.ReactElement {
                       </Typography.Text>
                     </div>
 
-                    {order?.status === 'jarayonda' && (
-                      <div className="flex justify-center items-center gap-3 px-2 pt-3">
-                        <Button
-                          className="bg-danger text-white outline-danger border-danger"
-                          onClick={handleCancel}
-                        >
-                          Bekor qilish
-                        </Button>
-                        <Button onClick={handleConfirm}>Qabul qilish</Button>
-                      </div>
-                    )}
                     <div className="flex justify-between items-start px-2">
                       <Typography.Text className="text-[14px] font-semibold">
                         Mijoz haqida:
                       </Typography.Text>
                       <Typography.Text className="text-[14px] font-[500] text-end w-[150px]">
-                        MMMM +998999999999
+                        {order?.user?.first_name} {order?.user?.phone_number}
                       </Typography.Text>
                     </div>
+                    {order?.status === 'jarayonda' && (
+                      <div className="flex justify-center items-center gap-3 px-2 pt-3">
+                        <Button
+                          className="bg-danger text-white outline-danger border-danger"
+                          onClick={handleCancel}
+                          loading={isLoading}
+                        >
+                          Bekor qilish
+                        </Button>
+
+                        <Button onClick={handleConfirm} loading={isLoading}>
+                          Qabul qilish
+                        </Button>
+                      </div>
+                    )}
                   </div>
 
                   <Collapse

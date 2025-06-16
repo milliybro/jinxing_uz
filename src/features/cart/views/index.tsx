@@ -27,7 +27,7 @@ export default function CartPage(): React.ReactElement {
     }
   }, [])
 
-  const { mutate } = useMutation({
+  const { mutate, isLoading } = useMutation({
     mutationFn: createOrder,
     onSuccess: () => {
       clearCart()
@@ -115,6 +115,7 @@ export default function CartPage(): React.ReactElement {
               size="large"
               className="bg-[#FDBB31] border-[#FDBB31] text-white cursor-pointer"
               disabled={!cart?.length}
+              loading={isLoading}
             >
               Rasmiylashtirish · {formatPrice(totalPrice)}
             </Button>

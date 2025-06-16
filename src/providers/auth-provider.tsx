@@ -23,7 +23,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
     onSuccess: (res) => {
       localStorage.setItem('refresh_token', res?.refresh)
       localStorage.setItem('access_token', res?.access)
-      // messageApi.success('Login')
+      messageApi.success('Login')
       // window.location.reload()
     },
     onError: (err) => {
@@ -36,9 +36,9 @@ export default function AuthProvider(props: Props): React.ReactElement {
     },
   })
 
-  const submit = () => {
-    loginMutate({ telegram_id: '1930372151' })
-  }
+  // const submit = () => {
+  //   loginMutate({ telegram_id: '1930372151' })
+  // }
   useEffect(() => {
     WebApp.ready()
     WebApp.expand()
@@ -46,16 +46,15 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
-      messageApi.success('token ochirildi')
-      // localStorage.removeItem('access_token')
-      // localStorage.removeItem('refresh_token')
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('refresh_token')
       loginMutate({ telegram_id: initData.user.id }, {})
     }
   }, [])
 
   return (
     <authContext.Provider value={value}>
-      <Button onClick={submit}></Button>
+      {/* <Button onClick={submit}></Button> */}
       {contextHolder}
       {isLoggingIn ? <div>Loading...</div> : children}
     </authContext.Provider>

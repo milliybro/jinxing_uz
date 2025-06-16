@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
 import { getHistory } from '../api'
-import { Collapse, Divider, Typography } from 'antd'
+import { Button, Collapse, Divider, Typography } from 'antd'
 import { formatPrice } from '@/features/welcome/helpers/formatPrice'
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export default function CartPage(): React.ReactElement {
   const [userId, setUserId] = useState<string | null>(null)
+  const location = useLocation()
 
   useEffect(() => {
     const token = localStorage.getItem('access_token')
@@ -24,12 +26,21 @@ export default function CartPage(): React.ReactElement {
       }
     }
   }, [])
-  const { data } = useQuery({
+
+  console.log(location.pathname)
+
+  const { data, refetch } = useQuery({
     queryKey: ['history', userId],
     queryFn: () => getHistory({ user: userId }),
     enabled: !!userId,
     refetchOnMount: 'always',
   })
+
+  useEffect(() => {
+    if (userId) {
+      refetch()
+    }
+  }, [location.pathname === '/history'])
 
   const onChange = (key: string | string[]) => {
     console.log(key)
@@ -40,11 +51,20 @@ export default function CartPage(): React.ReactElement {
     <div className="container h-full py-6 relative pb-[80px]">
       <div className="h-full flex flex-col justify-between">
         <div>
-          <h1 className="text-2xl font-bold pt-4">
-            Buyurtmalar({data?.count})
-          </h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold pt-4">
+              Buyurtmalar({data?.count})
+            </h1>
 
-          {/* <p className="mt-4 text-gray-500">Buyurtmalar yo'q</p> */}
+            <Button
+              className="mt-4 text-gray-500"
+              onClick={() => {
+                refetch()
+              }}
+            >
+              Yangilash
+            </Button>
+          </div>
           {data?.results
             .slice()
             .reverse()
