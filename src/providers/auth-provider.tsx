@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from 'react'
 import { authContext } from '@/contexts/auth-context'
 import { useMutation } from '@tanstack/react-query'
 import { login } from '@/api'
-import { Button, message } from 'antd'
+import { Button, message, notification } from 'antd'
 import WebApp from '@twa-dev/sdk'
 
 interface Props {
@@ -29,6 +29,10 @@ export default function AuthProvider(props: Props): React.ReactElement {
     onError: (err) => {
       console.error('Login error:', err)
       messageApi.error('Login muvaffaqiyatsiz tugadi')
+      notification.error({
+        message: 'Login muvaffaqiyatsiz tugadi',
+        description: 'An error occurred. Please try again.',
+      })
     },
   })
 
@@ -43,9 +47,9 @@ export default function AuthProvider(props: Props): React.ReactElement {
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
       messageApi.success('token ochirildi')
-      localStorage.removeItem('access_token')
-      localStorage.removeItem('refresh_token')
-      loginMutate({ telegram_id: initData.user.id })
+      // localStorage.removeItem('access_token')
+      // localStorage.removeItem('refresh_token')
+      loginMutate({ telegram_id: initData.user.id }, {})
     }
   }, [])
 

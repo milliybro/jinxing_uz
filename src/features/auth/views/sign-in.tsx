@@ -19,11 +19,10 @@ export default function SignIn(): React.ReactElement {
   const { mutate, isLoading } = useMutation({
     mutationFn: login,
     onSuccess: (res) => {
-      localStorage.setItem('refresh_token', res.auth_tokens?.refresh)
-      localStorage.setItem('access_token', res.auth_tokens?.access)
-      localStorage.setItem('user_data', JSON.stringify(res.user_data))
-
-      window.location.reload()
+      // localStorage.setItem('refresh_token', res.auth_tokens?.refresh)
+      // localStorage.setItem('access_token', res.auth_tokens?.access)
+      // localStorage.setItem('user_data', JSON.stringify(res.user_data))
+      // window.location.reload()
     },
     onError: () => {
       form.setFields([
@@ -179,11 +178,7 @@ export default function SignIn(): React.ReactElement {
             Powered by
           </Typography.Text>
           <a href="/">
-            <img
-              src=""
-              alt="uzinfocom logo"
-              className="w-[120px]"
-            />
+            <img src="" alt="uzinfocom logo" className="w-[120px]" />
           </a>
         </div>
       </div>
