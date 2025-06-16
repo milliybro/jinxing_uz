@@ -133,29 +133,37 @@ export default function Welcome(): React.ReactElement {
                   <span className="font-semibold">SKU:</span>{' '}
                   {selectedProduct?.sku}{' '}
                 </h2>
-                <p className="text-green-500 ">
+                <p
+                  className={` ${
+                    selectedProduct?.count === 0
+                      ? 'text-red-500'
+                      : 'text-green-500'
+                  } `}
+                >
                   <CheckIcon /> {selectedProduct?.count} dona xarid qilish
                   mumkin
                 </p>
                 <div className="mt-6">
                   {count === 0 ? (
-                    <button
-                      onClick={() =>
-                        addToCart(
-                          {
-                            id: selectedProduct.id,
-                            name: selectedProduct.name,
-                            price: selectedProduct.price,
-                            image: selectedProduct.image,
-                            maxCount: selectedProduct.count,
-                          },
-                          1,
-                        )
-                      }
-                      className="w-full bg-white border-black border rounded-[12px] px-4 py-[14px] text-[16px] font-medium"
-                    >
-                      Qo‘shish
-                    </button>
+                    selectedProduct?.count === 0 ? null : (
+                      <button
+                        onClick={() =>
+                          addToCart(
+                            {
+                              id: selectedProduct.id,
+                              name: selectedProduct.name,
+                              price: selectedProduct.price,
+                              image: selectedProduct.image,
+                              maxCount: selectedProduct.count,
+                            },
+                            1,
+                          )
+                        }
+                        className="w-full bg-white border-black border rounded-[12px] px-4 py-[14px] text-[16px] font-medium"
+                      >
+                        Qo‘shish
+                      </button>
+                    )
                   ) : (
                     <div className="w-full flex justify-between items-center rounded-[12px] mt-2 bg-white px-4 py-2 border border-black">
                       <button
