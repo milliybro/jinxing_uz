@@ -31,7 +31,7 @@ export default function CartPage(): React.ReactElement {
   console.log(location.pathname)
 
   const { data, refetch, isFetching } = useQuery({
-    queryKey: ['history', userId],
+    queryKey: ['history', userId, currentPage],
     queryFn: () => getHistory({ user: userId, page: currentPage }),
     enabled: !!userId,
     refetchOnMount: 'always',

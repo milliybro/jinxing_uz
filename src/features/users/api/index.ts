@@ -28,10 +28,11 @@ export async function refreshToken(data: {
   return res
 }
 
-export async function getUser(): Promise<any> {
+export async function getUser({ params }: any): Promise<any> {
   const res: any = await request({
     url: `/users/`,
     method: 'get',
+    params,
   })
 
   return res

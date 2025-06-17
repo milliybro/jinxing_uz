@@ -3,7 +3,7 @@ import CloseIcon from '@/components/icons/close'
 import { formatPrice } from '@/features/welcome/helpers/formatPrice'
 import { useCartStore } from '@/store/cart-store'
 import { useQuery } from '@tanstack/react-query'
-import { Collapse, Drawer, Image, Input, Table } from 'antd'
+import { Collapse, Drawer, Image, Input, Pagination, Table } from 'antd'
 import { useState } from 'react'
 import { getUser } from '../api'
 import { PhoneFilled } from '@ant-design/icons'
@@ -22,10 +22,11 @@ export default function UsersPage(): React.ReactElement {
     : null
 
   const count = itemInCart?.count || 0
+  const [currentPage, setCurrentPage] = useState(1)
 
   const { data, isFetching } = useQuery({
-    queryKey: ['users'],
-    queryFn: () => getUser(),
+    queryKey: ['users', currentPage],
+    queryFn: () => getUser({ page: currentPage }),
     // enabled: false,
   })
   console.log(data)
@@ -72,8 +73,8 @@ export default function UsersPage(): React.ReactElement {
         <div className="overflow-scroll bg-white mt-2">
           <Collapse
             items={
-              data
-                ? data.map((item: any, index: number) => ({
+              data?.results
+                ? data?.results.map((item: any, index: number) => ({
                     key: String(index),
                     label: (
                       <div className="font-medium text-[14px] flex justify-between">
@@ -229,6 +230,24 @@ export default function UsersPage(): React.ReactElement {
           )}
         </div>
       </Drawer>
+      <div className="flex justify-center mt-6">
+        <Pagination
+          current={currentPage}
+          pageSize={20}
+          total={data?.count || 0}
+          onChange={(page) => {
+            setCurrentPage(page)
+            console.log(page)
+          }}
+          showSizeChanger={false}
+        />
+      </div>
+
+      {isFetching && (
+        <div className="text-center py-4 font-semibold text-gray-500">
+          Yuklanmoqda...
+        </div>
+      )}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Drawer, Image, Typography } from 'antd'
 import { useState } from 'react'
 import { getProducts } from '../api'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import queryString from 'query-string'
 import { formatPrice } from '@/features/welcome/helpers/formatPrice'
 import CheckIcon from '@/components/icons/check'
@@ -27,6 +27,7 @@ export default function Welcome(): React.ReactElement {
   const count = itemInCart?.count || 0
 
   const location = useLocation()
+  const navigate = useNavigate()
 
   const query = queryString.parse(location.search)
   const name = query.name
@@ -63,6 +64,9 @@ export default function Welcome(): React.ReactElement {
 
   return (
     <div className="container h-full py-6">
+      <div className="" onClick={() => navigate(-1)}>
+        ← Orqaga
+      </div>
       <div className="h-screen">
         <Typography.Text className="text-[28px] font-semibold">
           {name} ({data?.count})
