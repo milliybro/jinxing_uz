@@ -1,11 +1,15 @@
 import request from '@/utils/axios'
 import { ListResponse } from '@/types'
 
-export async function getHistory(params?: any): Promise<ListResponse<any[]>> {
+export async function getHistory({
+  pageParam,
+}: {
+  pageParam?: number
+}): Promise<ListResponse<any[]>> {
   const res: ListResponse<any[]> = await request({
     url: '/orders/',
     method: 'get',
-    params,
+    params: { page: pageParam },
   })
 
   return res

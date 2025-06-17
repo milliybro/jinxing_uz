@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { getHistory } from '../api'
-import { Button, Collapse, Divider, Typography } from 'antd'
+import { Button, Collapse, Divider, Pagination, Typography } from 'antd'
 import { formatPrice } from '@/features/welcome/helpers/formatPrice'
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom'
 export default function CartPage(): React.ReactElement {
   const [userId, setUserId] = useState<string | null>(null)
   const location = useLocation()
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     const token = localStorage.getItem('access_token')
@@ -29,11 +30,12 @@ export default function CartPage(): React.ReactElement {
 
   console.log(location.pathname)
 
-  const { data, refetch } = useQuery({
+  const { data, refetch, isFetching } = useQuery({
     queryKey: ['history', userId],
-    queryFn: () => getHistory({ user: userId }),
+    queryFn: () => getHistory({ user: userId, page: currentPage }),
     enabled: !!userId,
     refetchOnMount: 'always',
+    keepPreviousData: true,
   })
 
   useEffect(() => {
@@ -212,6 +214,24 @@ export default function CartPage(): React.ReactElement {
             })}
         </div>
       </div>
+      <div className="flex justify-center mt-6">
+        <Pagination
+          current={currentPage}
+          pageSize={20}
+          total={data?.count || 0}
+          onChange={(page) => {
+            setCurrentPage(page)
+            console.log(page)
+          }}
+          showSizeChanger={false}
+        />
+      </div>
+
+      {isFetching && (
+        <div className="text-center py-4 font-semibold text-gray-500">
+          Yuklanmoqda...
+        </div>
+      )}
     </div>
   )
 }

@@ -52,21 +52,13 @@ export default function Welcome(): React.ReactElement {
     setOpen(true)
   }
 
-  const [photo, setPhoto] = useState()
+  const [photo, setPhoto] = useState<any>()
   useEffect(() => {
     WebApp.ready()
 
     const initData = WebApp.initDataUnsafe
     if (initData && initData.user) {
-      // localStorage.removeItem('access_token')
-      // localStorage.removeItem('refresh_token')
       setPhoto(initData.user?.photo_url)
-      // onSubmit({
-      //   name: initData.user.first_name,
-      //   username: initData.user.username,
-      //   language_code: initData.user.language_code,
-      //   photo_url: initData.user.photo_url,
-      // })
     }
   }, [])
 
@@ -91,7 +83,7 @@ export default function Welcome(): React.ReactElement {
       </div>
       <div className="my-3">
         <Carousel autoplay dots={false}>
-          {products?.results.map((product: any, index: number) => (
+          {products?.results.slice(0, 4).map((product: any, index: number) => (
             <div
               onClick={() => onProductClick(product)}
               key={index}
