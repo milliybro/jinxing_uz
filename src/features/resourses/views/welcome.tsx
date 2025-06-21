@@ -134,7 +134,7 @@ export default function Welcome(): React.ReactElement {
   }
 
   return (
-    <div className='pb-[70px]'>
+    <div className="pb-[70px]">
       {!isProductPage && (
         <div className="container h-full py-6 ">
           <div className="">
@@ -157,10 +157,15 @@ export default function Welcome(): React.ReactElement {
                 {data?.results.map((category, index: number) => {
                   const menu = (
                     <Menu>
-                      <Menu.Item key="edit" onClick={() => onEdit(category)}>
+                      <Menu.Item
+                        className="text-[20px]"
+                        key="edit"
+                        onClick={() => onEdit(category)}
+                      >
                         Tahrirlash
                       </Menu.Item>
                       <Menu.Item
+                        className="text-[20px]"
                         key="delete"
                         danger
                         onClick={() => onDelete(category)}
@@ -183,8 +188,8 @@ export default function Welcome(): React.ReactElement {
                         onClick={() => goToCategoryProducts(category)}
                       />
                       <Dropdown overlay={menu} trigger={['click']}>
-                        <span className="absolute right-2 top-2 bg-[#fcfcfc] w-6 h-6 flex justify-center items-center rounded-full cursor-pointer shadow">
-                          <MoreOutlined />
+                        <span className="absolute right-2 top-2 bg-[#fcfcfc] w-8 h-8 flex justify-center items-center rounded-full cursor-pointer shadow">
+                          <MoreOutlined className='text-[20px]'/>
                         </span>
                       </Dropdown>
                       <div

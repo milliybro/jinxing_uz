@@ -8,6 +8,7 @@ import queryString from 'query-string'
 import { formatPrice } from '@/features/welcome/helpers/formatPrice'
 import CheckIcon from '@/components/icons/check'
 import { useCartStore } from '@/store/cart-store'
+import ArrowLeftLongIcon from '@/components/icons/arrow-left-long'
 
 export default function Welcome(): React.ReactElement {
   // const [count, setCount] = useState(0)
@@ -64,7 +65,10 @@ export default function Welcome(): React.ReactElement {
 
   return (
     <div className="container h-full py-6">
-      <div className="" onClick={() => navigate(-1)}>
+      <div
+        className="text-[16px] font-[500] border w-fit py-1 px-2 rounded-[8px] cursor-pointer "
+        onClick={() => navigate(-1)}
+      >
         ← Orqaga
       </div>
       <div className="h-screen">

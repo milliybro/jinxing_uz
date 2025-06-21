@@ -8,7 +8,7 @@ import { useState } from 'react'
 export default function OrdersPage(): React.ReactElement {
   const [currentPage, setCurrentPage] = useState(1)
 
-  const { data, isFetching } = useQuery({
+  const { data, isFetching, refetch } = useQuery({
     queryKey: ['history', currentPage],
     queryFn: () => getHistory({ pageParam: currentPage }),
     keepPreviousData: true,
@@ -16,7 +16,9 @@ export default function OrdersPage(): React.ReactElement {
 
   const { mutate: updateMutate, isLoading } = useMutation({
     mutationFn: ({ id, data }: any) => updateOrders(id, data),
-    onSuccess: () => {},
+    onSuccess: () => {
+      refetch()
+    },
     onError: () => {},
   })
 

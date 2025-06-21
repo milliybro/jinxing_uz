@@ -1,10 +1,6 @@
 import { Button, Tooltip } from 'antd'
 import { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-// import { useMutation } from '@tanstack/react-query'
-
-// import queryClient from '@/utils/query-client'
 
 import EditIcon from '@/components/icons/edit'
 import DeleteIcon from '@/components/icons/delete'
@@ -19,18 +15,8 @@ const TableActions: FC<{
   const [deleteModal, setDeleteModal] = useState(false)
   const { t } = useTranslation()
 
-  // const { mutate: deleteSingleMaid, isLoading: isDeleting } = useMutation({
-  //   mutationFn: () => {},
-  //   onSuccess: () => {
-  //     setDeleteModal(false)
-  //     queryClient.invalidateQueries(['all-maids-list'])
-  //   },
-  //   onError: () => {},
-  // })
-
   const editHandler = () => {
     setOpenModal(true)
-    // navigate(`/all-maids?edit=${values.id}`), { replace: true }
   }
 
   return (
@@ -65,8 +51,6 @@ const TableActions: FC<{
         title={t('all-maids-page.delete-modal.title')}
         subTitle={t('all-maids-page.delete-modal.subtitle')}
         primaryBtnText={t('common.delete')}
-        // isLoading={isDeleting}
-        // action={() => deleteSingleMaid(values.id)}
       />
     </div>
   )

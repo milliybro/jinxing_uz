@@ -161,7 +161,10 @@ export default function Product(): React.ReactElement {
   return (
     <div className="container h-full py-6 ">
       <div className="">
-        <div className="" onClick={() => navigate(-1)}>
+        <div
+          className="text-[16px] font-[500] border w-fit py-1 px-2 rounded-[8px] cursor-pointer "
+          onClick={() => navigate(-1)}
+        >
           ← Orqaga
         </div>
         <div className="flex justify-between items-center">
@@ -184,10 +187,15 @@ export default function Product(): React.ReactElement {
             {data?.results.map((product, index: number) => {
               const menu = (
                 <Menu>
-                  <Menu.Item key="edit" onClick={() => onEdit(product)}>
+                  <Menu.Item
+                    className="text-[20px]"
+                    key="edit"
+                    onClick={() => onEdit(product)}
+                  >
                     Tahrirlash
                   </Menu.Item>
                   <Menu.Item
+                    className="text-[20px]"
                     key="delete"
                     danger
                     onClick={() => onDelete(product)}
@@ -210,8 +218,8 @@ export default function Product(): React.ReactElement {
                     onClick={() => onProductClick(product)}
                   />
                   <Dropdown overlay={menu} trigger={['click']}>
-                    <span className="absolute right-2 top-2 bg-[#fcfcfc] w-6 h-6 flex justify-center items-center rounded-full cursor-pointer shadow">
-                      <MoreOutlined />
+                    <span className="absolute right-2 top-2 bg-[#fcfcfc] w-8 h-8 flex justify-center items-center rounded-full cursor-pointer shadow">
+                      <MoreOutlined className="text-[20px]" />
                     </span>
                   </Dropdown>
                   <div

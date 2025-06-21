@@ -8,8 +8,8 @@ import ViewIcon from '@/components/icons/view'
 import ViewOffIcon from '@/components/icons/view-off'
 import CustomerSupportIcon from '@/components/icons/customer-support'
 
-import videoBanner from '@/assets/intro.mp4'
-import logo_white from '@/assets/uzlogo_white.png'
+// import videoBanner from '@/assets/intro.mp4'
+// import logo_white from '@/assets/uzlogo_white.png'
 import { useTranslation } from 'react-i18next'
 
 export default function SignIn(): React.ReactElement {
@@ -50,7 +50,7 @@ export default function SignIn(): React.ReactElement {
         poster="../main-banner.jpg"
       >
         <source
-          src={videoBanner}
+          // src={videoBanner}
           width={1000}
           height={500}
           type="video/mp4"
@@ -64,7 +64,7 @@ export default function SignIn(): React.ReactElement {
           <div>
             <div className="flex flex-col items-center max-w-[367px] mx-auto">
               {/* <EmehmonLightBlueIcon className="mb-6" /> */}
-              <img width={153} className="mb-6" src={logo_white} />
+              {/* <img width={153} className="mb-6" src={logo_white} /> */}
 
               <Typography.Text className="text-[28px] text-white font-semibold mb-4">
                 {t('common.welcome')}

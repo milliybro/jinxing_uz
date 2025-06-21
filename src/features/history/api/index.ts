@@ -1,6 +1,6 @@
 import request from '@/utils/axios'
 import type { AxiosResponse } from 'axios'
-import type { AuthResponse, ISingleOrder } from '../types'
+import type { AuthResponse } from '../types'
 import { ListResponse } from '@/types'
 
 export async function login(data: {

@@ -26,8 +26,7 @@ export default function UsersPage(): React.ReactElement {
 
   const { data, isFetching } = useQuery({
     queryKey: ['users', currentPage],
-    queryFn: () => getUser({ page: currentPage }),
-    // enabled: false,
+    queryFn: () => getUser({ params: { page: currentPage, page_size: 20 } }),
   })
   console.log(data)
 
@@ -233,7 +232,7 @@ export default function UsersPage(): React.ReactElement {
       <div className="flex justify-center mt-6">
         <Pagination
           current={currentPage}
-          pageSize={20}
+          pageSize={10}
           total={data?.count || 0}
           onChange={(page) => {
             setCurrentPage(page)

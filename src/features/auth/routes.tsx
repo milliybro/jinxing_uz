@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/promise-function-async */
 import Auth from './views/auth'
 import SignIn from './views/sign-in'
 
