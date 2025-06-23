@@ -53,8 +53,8 @@ export default function Welcome(): React.ReactElement {
       onClose()
       refetch()
     },
-    onError: () => {
-      message.error('Xatolik yuz berdi.')
+    onError: (err) => {
+      message.error(err)
     },
   })
   const { mutate: updateMutate } = useMutation({
@@ -189,7 +189,7 @@ export default function Welcome(): React.ReactElement {
                       />
                       <Dropdown overlay={menu} trigger={['click']}>
                         <span className="absolute right-2 top-2 bg-[#fcfcfc] w-8 h-8 flex justify-center items-center rounded-full cursor-pointer shadow">
-                          <MoreOutlined className='text-[20px]'/>
+                          <MoreOutlined className="text-[20px]" />
                         </span>
                       </Dropdown>
                       <div
