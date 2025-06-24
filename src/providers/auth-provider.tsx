@@ -36,9 +36,9 @@ export default function AuthProvider(props: Props): React.ReactElement {
     },
   })
 
-  const submit = () => {
-    loginMutate({ telegram_id: '1930372151' })
-  }
+  // const submit = () => {
+  //   loginMutate({ telegram_id: '1930372151' })
+  // }
   useEffect(() => {
     WebApp.ready()
     WebApp.expand()
@@ -54,7 +54,7 @@ export default function AuthProvider(props: Props): React.ReactElement {
 
   return (
     <authContext.Provider value={value}>
-      <Button onClick={submit}></Button>
+      {/* <Button onClick={submit}></Button> */}
       {contextHolder}
       {isLoggingIn ? <div>Loading...</div> : children}
     </authContext.Provider>
