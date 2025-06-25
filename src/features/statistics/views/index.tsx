@@ -28,8 +28,20 @@ export default function StatisticsPage(): React.ReactElement {
             <span className="text-[18px] font-semibold">
               Umumiy daromad (USD)
             </span>
+            <div className="text-[24px] font-bold">{data?.orders_amount}</div>
+          </div>
+          <div className="bg-white p-4 shadow-xl rounded-[16px] ">
+            <span className="text-[16px] font-semibold">Daromaddan foyda</span>
+            <div className="text-[24px] font-bold text-green-500">
+              {formatAmount(data?.net_profit)} UZS
+            </div>
+          </div>
+          <div className="bg-white p-4 shadow-xl rounded-[16px]">
+            <span className="text-[16px] font-semibold">
+              Mahsulotning tan narxi
+            </span>
             <div className="text-[24px] font-bold">
-              {data?.orders_approved_amount}
+              {formatAmount(data?.orders_amount_approved)} UZS
             </div>
           </div>
           <div className="bg-white p-4 shadow-xl rounded-[16px] flex flex-col justify-between">
@@ -46,6 +58,12 @@ export default function StatisticsPage(): React.ReactElement {
               {data?.product_count} ta
             </div>
           </div>
+          <div className="bg-white p-4 shadow-xl rounded-[16px]">
+            <span className="text-[16px] font-semibold">
+              Foydalanuvchilar soni
+            </span>
+            <div className="text-[24px] font-bold">{data?.user_count} ta</div>
+          </div>
           <div className="col-span-2 bg-white p-4 shadow-xl rounded-[16px] flex flex-col justify-between">
             <span className="text-[16px] font-semibold">
               Kutilayotgan umumiy daromad
@@ -54,12 +72,21 @@ export default function StatisticsPage(): React.ReactElement {
               {formatAmount(data?.product_total_amount)} USD
             </div>
           </div>
-
-          <div className="bg-white p-4 shadow-xl rounded-[16px]">
+          <div className="col-span-1 bg-white p-4 shadow-xl rounded-[16px] flex flex-col justify-between">
             <span className="text-[16px] font-semibold">
-              Foydalanuvchilar soni
+              Kutilayotgan sof foyda
             </span>
-            <div className="text-[24px] font-bold">{data?.user_count} ta</div>
+            <div className="text-[24px] font-bold">
+              {formatAmount(data?.product_total_net_profit)} USD
+            </div>
+          </div>
+          <div className="col-span-1 bg-white p-4 shadow-xl rounded-[16px] flex flex-col justify-between">
+            <span className="text-[16px] font-semibold">
+              Kutilayotgan tannarx
+            </span>
+            <div className="text-[24px] font-bold">
+              {formatAmount(data?.product_total_amount_approved)} USD
+            </div>
           </div>
         </div>
         <div className="mt-3">

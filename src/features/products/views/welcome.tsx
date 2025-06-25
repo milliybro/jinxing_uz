@@ -1,6 +1,6 @@
 import CloseIcon from '@/components/icons/close'
 import { useQuery } from '@tanstack/react-query'
-import { Drawer, Image, Typography } from 'antd'
+import { Drawer, Image, Pagination, Typography } from 'antd'
 import { useState } from 'react'
 import { getProducts } from '../api'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -20,6 +20,7 @@ export default function Welcome(): React.ReactElement {
   const addToCart = useCartStore((state) => state.addToCart)
   const increment = useCartStore((state) => state.increment)
   const decrement = useCartStore((state) => state.decrement)
+  const [currentPage, setCurrentPage] = useState(1)
 
   const itemInCart = selectedProduct
     ? cart.find((item) => item.id === selectedProduct.id)
@@ -64,14 +65,14 @@ export default function Welcome(): React.ReactElement {
   }
 
   return (
-    <div className="container h-full py-6">
+    <div className="container h-full py-6 pb-[80px]">
       <div
         className="text-[16px] font-[500] border w-fit py-1 px-2 rounded-[8px] cursor-pointer "
         onClick={() => navigate(-1)}
       >
         ← Orqaga
       </div>
-      <div className="h-screen">
+      <div className="">
         <Typography.Text className="text-[28px] font-semibold">
           {name} ({data?.count})
         </Typography.Text>
@@ -195,6 +196,18 @@ export default function Welcome(): React.ReactElement {
           )}
         </div>
       </Drawer>
+      <div className="flex justify-center mt-6">
+        <Pagination
+          current={currentPage}
+          pageSize={10}
+          total={data?.count || 0}
+          onChange={(page) => {
+            setCurrentPage(page)
+            console.log(page)
+          }}
+          showSizeChanger={false}
+        />
+      </div>
     </div>
   )
 }

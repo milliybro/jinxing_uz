@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { Carousel, Drawer, Image, Typography } from 'antd'
+import { Carousel, Drawer, Image, Pagination, Typography } from 'antd'
 import { Link } from 'react-router-dom'
 import { getProducts } from '@/features/products/api'
 import { getCategories } from '../api'
@@ -15,6 +15,7 @@ import WebApp from '@twa-dev/sdk'
 export default function Welcome(): React.ReactElement {
   const [open, setOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<any>(null)
+  const [currentPage, setCurrentPage] = useState(1)
 
   const cart = useCartStore((state) => state.cart)
   const addToCart = useCartStore((state) => state.addToCart)
@@ -27,8 +28,8 @@ export default function Welcome(): React.ReactElement {
 
   const count = itemInCart?.count || 0
   const { data: products } = useQuery({
-    queryKey: ['products'],
-    queryFn: () => getProducts(),
+    queryKey: ['products', currentPage],
+    queryFn: () => getProducts({ page: currentPage }),
   })
 
   const { data: categories } = useQuery({
@@ -267,6 +268,18 @@ export default function Welcome(): React.ReactElement {
           )}
         </div>
       </Drawer>
+      <div className="flex justify-center mt-6">
+        <Pagination
+          current={currentPage}
+          pageSize={10}
+          total={products?.count || 0}
+          onChange={(page) => {
+            setCurrentPage(page)
+            console.log(page)
+          }}
+          showSizeChanger={false}
+        />
+      </div>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import {
   Menu,
   message,
   Modal,
+  Pagination,
   Select,
   Typography,
   Upload,
@@ -30,6 +31,7 @@ import CheckIcon from '@/components/icons/check'
 export default function Product(): React.ReactElement {
   const [form] = Form.useForm()
   const [file, setFile] = React.useState(null)
+  const [currentPage, setCurrentPage] = useState(1)
 
   const [selectedCategory, setSelectedCategory] = useState<any>(null)
   const location = useLocation()
@@ -40,8 +42,8 @@ export default function Product(): React.ReactElement {
   const navigate = useNavigate()
 
   const { data, refetch } = useQuery({
-    queryKey: ['products', id],
-    queryFn: () => getProducts({ category: id }),
+    queryKey: ['products', id, currentPage],
+    queryFn: () => getProducts({ category: id, page: currentPage }),
     enabled: !!id,
   })
 
@@ -95,6 +97,7 @@ export default function Product(): React.ReactElement {
     formData.append('sku', values.sku)
     formData.append('description', values.description)
     formData.append('count', values.count)
+    formData.append('price_received', values.price_received)
     if (file) {
       formData.append('image', file)
     }
@@ -120,6 +123,7 @@ export default function Product(): React.ReactElement {
       sku: product?.sku,
       description: product?.description,
       count: product?.count,
+      price_received: product?.price_received,
     })
     setFile(null)
     setOpen(true)
@@ -282,7 +286,17 @@ export default function Product(): React.ReactElement {
               >
                 <Input size="large" placeholder="Masalan: Kompressor" />
               </Form.Item>
-
+              <Form.Item
+                label="Asl narxi (so'm):"
+                name="price_received"
+                rules={[{ required: true, message: 'Narxini kiriting' }]}
+              >
+                <Input
+                  type="number"
+                  size="large"
+                  placeholder="Masalan: 250000"
+                />
+              </Form.Item>
               <Form.Item
                 label="Narxi (so'm):"
                 name="price"
@@ -396,6 +410,18 @@ export default function Product(): React.ReactElement {
           )}
         </div>
       </Drawer>
+      <div className="flex justify-center mt-6">
+        <Pagination
+          current={currentPage}
+          pageSize={10}
+          total={data?.count || 0}
+          onChange={(page) => {
+            setCurrentPage(page)
+            console.log(page)
+          }}
+          showSizeChanger={false}
+        />
+      </div>
     </div>
   )
 }

@@ -1,12 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
-import { Button, Image, Tabs, TabsProps, Typography } from 'antd'
+import { Button, Image, Pagination, Tabs, TabsProps, Typography } from 'antd'
 import { Link } from 'react-router-dom'
 import { getCategories } from '../api'
+import { useState } from 'react'
 
 export default function Welcome(): React.ReactElement {
+  const [currentPage, setCurrentPage] = useState(1)
+
   const { data } = useQuery({
-    queryKey: ['categories'],
-    queryFn: () => getCategories(),
+    queryKey: ['categories', currentPage],
+    queryFn: () => getCategories({ page: currentPage }),
   })
 
   return (
@@ -43,6 +46,18 @@ export default function Welcome(): React.ReactElement {
             Kataloglar mavjud emas
           </div>
         )}
+      </div>
+      <div className="flex justify-center mt-6">
+        <Pagination
+          current={currentPage}
+          pageSize={10}
+          total={data?.count || 0}
+          onChange={(page) => {
+            setCurrentPage(page)
+            console.log(page)
+          }}
+          showSizeChanger={false}
+        />
       </div>
     </div>
   )

@@ -9,6 +9,7 @@ import {
   Menu,
   message,
   Modal,
+  Pagination,
   Typography,
   Upload,
 } from 'antd'
@@ -29,10 +30,11 @@ export default function Welcome(): React.ReactElement {
   const [selectedCategory, setSelectedCategory] = useState<any>(null)
   const location = useLocation()
   const isProductPage = location.pathname.includes('product')
+  const [currentPage, setCurrentPage] = useState(1)
 
   const { data, refetch } = useQuery({
-    queryKey: ['categories'],
-    queryFn: () => getCategories(),
+    queryKey: ['categories', currentPage],
+    queryFn: () => getCategories({ page: currentPage }),
   })
 
   const [open, setOpen] = useState(false)
@@ -55,8 +57,8 @@ export default function Welcome(): React.ReactElement {
     },
     onError: (err) => {
       // message.error(JSON.stringify(err ?? {}))
-      console.log(err);
-      
+      console.log(err)
+
       message.error('Xatolik yuz berdi')
     },
   })
@@ -274,6 +276,20 @@ export default function Welcome(): React.ReactElement {
         </div>
       )}
       <Outlet />
+      {!isProductPage && (
+        <div className="flex justify-center mt-6">
+          <Pagination
+            current={currentPage}
+            pageSize={10}
+            total={data?.count || 0}
+            onChange={(page) => {
+              setCurrentPage(page)
+              console.log(page)
+            }}
+            showSizeChanger={false}
+          />
+        </div>
+      )}
     </div>
   )
 }
